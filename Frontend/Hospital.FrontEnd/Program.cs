@@ -1,11 +1,13 @@
 using Hospital.FrontEnd.Components;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorComponents();
-//var hospitalmanagementApiUrl = builder.configuration["HospitalManagementApiUrl"] ?? throw new Exception("HospitalManagementApiUrl is not set");
-//builder.services.AddHttpClient<HospitalClient>(hospital => hospital.BaseAddress = new Uri(hospitalmanagementApiUrl));
+builder.Services.AddRazorComponents().AddInteractiveServerComponents();
+builder.Services.AddScoped<AuthClient>();
+var HospitalApiUrl = builder.Configuration["HospitalApiUrl"] ?? throw new Exception("HospitalApiUrl is not set");
+builder.Services.AddHttpClient<AuthClient>(client => client.BaseAddress = new Uri(HospitalApiUrl));
 
 var app = builder.Build();
 
@@ -21,7 +23,6 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
-
-app.MapRazorComponents<App>();
+app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
 
 app.Run();

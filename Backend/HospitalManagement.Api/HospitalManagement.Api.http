@@ -1,4 +1,20 @@
 @HospitalManagement.Api_HostAddress = http://localhost:5253
 
 ###
+POST http://localhost:5253/register
+Content-Type: application/json
 
+{
+    "Email": "danujkethaka@gmail.com",
+    "Initials": "dk",
+    "Password": "Danuj#20501"
+}
+
+###
+POST  http://localhost:5253/login
+Content-Type: application/json
+
+{
+    "Email": "danujkethaka@gmail.com",
+    "Password": "Danuj#20501"
+}

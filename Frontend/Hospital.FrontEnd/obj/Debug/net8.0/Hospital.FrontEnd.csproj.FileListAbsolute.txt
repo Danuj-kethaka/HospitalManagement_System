@@ -26,3 +26,4 @@ D:\GIT HUB Projects\Dotnet First Project\Frontend\Hospital.FrontEnd\obj\Debug\ne
 D:\GIT HUB Projects\Dotnet First Project\Frontend\Hospital.FrontEnd\obj\Debug\net8.0\Hospital.FrontEnd.pdb
 D:\GIT HUB Projects\Dotnet First Project\Frontend\Hospital.FrontEnd\obj\Debug\net8.0\Hospital.FrontEnd.genruntimeconfig.cache
 D:\GIT HUB Projects\Dotnet First Project\Frontend\Hospital.FrontEnd\obj\Debug\net8.0\ref\Hospital.FrontEnd.dll
+D:\GIT HUB Projects\Dotnet First Project\frontend\hospital.frontend\obj\Debug\net8.0\Hospital.FrontEnd.sourcelink.json
