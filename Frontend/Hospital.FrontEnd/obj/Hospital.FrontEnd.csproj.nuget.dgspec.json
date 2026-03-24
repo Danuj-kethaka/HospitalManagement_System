@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GIT HUB Projects\\Dotnet First Project\\Frontend\\Hospital.FrontEnd\\Hospital.FrontEnd.csproj": {}
+    "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\Hospital.FrontEnd.csproj": {}
   },
   "projects": {
-    "D:\\GIT HUB Projects\\Dotnet First Project\\Frontend\\Hospital.FrontEnd\\Hospital.FrontEnd.csproj": {
+    "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\Hospital.FrontEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT HUB Projects\\Dotnet First Project\\Frontend\\Hospital.FrontEnd\\Hospital.FrontEnd.csproj",
+        "projectUniqueName": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\Hospital.FrontEnd.csproj",
         "projectName": "Hospital.FrontEnd",
-        "projectPath": "D:\\GIT HUB Projects\\Dotnet First Project\\Frontend\\Hospital.FrontEnd\\Hospital.FrontEnd.csproj",
+        "projectPath": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\Hospital.FrontEnd.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT HUB Projects\\Dotnet First Project\\Frontend\\Hospital.FrontEnd\\obj\\",
+        "outputPath": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"

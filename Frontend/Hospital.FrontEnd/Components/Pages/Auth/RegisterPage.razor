@@ -28,7 +28,7 @@
                                     <ValidationMessage TValue="string" For="() => user.Email"/>   
                                 </div>
                                  <div class="mb-6" style="margin-top: 20px;">
-                                    <InputText placeholder="Enter Password" id="password" @bind-Value="user.Password" required class="form-control" /> 
+                                    <InputText placeholder="Enter Password" type="password" id="password" @bind-Value="user.Password" required class="form-control" /> 
                                      <ValidationMessage TValue="string" For="() => user.Password"/>     
                                 </div>
                                 <div class="mb-3" style="margin-top: 20px;">
@@ -62,9 +62,8 @@
         HttpResponseMessage? response = await authClient.AddUser(user);
         if(response.IsSuccessStatusCode)
         {
-            successMessage = "Registration successfully...";
+            successMessage = "Registration successfully";
             StateHasChanged();
-            // wait 2 seconds before redirect
             await Task.Delay(2000);
             NavigationManager.NavigateTo("/");
         }

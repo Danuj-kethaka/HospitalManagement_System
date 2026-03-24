@@ -1,3 +1,5 @@
+using Hospital.FrontEnd.Models;
+
 public class AuthClient
 {
     private readonly HttpClient httpClient;
@@ -10,5 +12,10 @@ public class AuthClient
     public async Task<HttpResponseMessage> AddUser(UserDetails user)
     {
         return await httpClient.PostAsJsonAsync("register", user);
+    }
+
+    public async Task<HttpResponseMessage> Login (LoginDetails login)
+    {
+        return await httpClient.PostAsJsonAsync("login",login);
     }
 }
