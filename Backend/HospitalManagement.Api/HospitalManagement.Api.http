@@ -15,6 +15,19 @@ POST  http://localhost:5253/login
 Content-Type: application/json
 
 {
-    "Email": "danujkethaka@gmail.com",
+    "Email": "senanayakakethaka@gmail.com",
     "Password": "Danuj#20501"
 }
+
+###
+POST http://localhost:5253/appointments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzllNTZlYS1jNTM5LTRkY2UtOWZhMS02Y2Q3ZmFjZWJhZjgiLCJlbWFpbCI6InNlbmFuYXlha2FrZXRoYWthQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiNjc5ZTU2ZWEtYzUzOS00ZGNlLTlmYTEtNmNkN2ZhY2ViYWY4IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoic2VuYW5heWFrYWtldGhha2FAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiTWVtYmVyIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MjUzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MjUzIiwiZXhwIjoxNzc0NDY0ODgyLCJpYXQiOjE3NzQ0NjQ3NjIsIm5iZiI6MTc3NDQ2NDc2Mn0.hPiwL-iJ0GFB4X2j0CnlND_GrsLrYlDlWmj-Nis-fRM
+
+{
+  "doctoreName": "Dr. John Smith",
+  "departmentName": "Cardiology",
+  "dateTime": "2026-03-27T10:30:00"
+}
+
+###

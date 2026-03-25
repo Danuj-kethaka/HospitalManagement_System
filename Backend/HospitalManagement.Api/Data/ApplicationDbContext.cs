@@ -1,8 +1,10 @@
+using HospitalManagement.Api.Endpoints;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 public sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext>options) : IdentityDbContext<ApplicationUser>(options)
 {
+    public DbSet<Appointment> appointments => Set<Appointment>();
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -13,5 +15,6 @@ public sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext>o
         });
 
         builder.HasDefaultSchema("identity");
+
     }
 }

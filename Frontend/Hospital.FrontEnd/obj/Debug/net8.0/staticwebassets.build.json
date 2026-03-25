@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "poZASqWQKQnmvGoo9tfE7qA6+vtQ6QTlj3d3DRoLS2A=",
+  "Hash": "ycamv+VTOz0KOvZ1LitPLBmsqNqAkPxyOOenU4/88nU=",
   "Source": "Hospital.FrontEnd",
   "BasePath": "_content/Hospital.FrontEnd",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.css"
+    },
+    {
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\CSS\\style.css",
+      "SourceId": "Hospital.FrontEnd",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
+      "BasePath": "_content/Hospital.FrontEnd",
+      "RelativePath": "CSS/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CSS\\style.css"
     },
     {
       "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\h.png",

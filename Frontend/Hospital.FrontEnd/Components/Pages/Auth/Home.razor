@@ -53,7 +53,8 @@
     {
         var result = await response.Content.ReadFromJsonAsync<TokenResponse>();
         await JS.InvokeVoidAsync("localStorage.setItem","token",result!.accessToken);
-        NavigationManager.NavigateTo("/registerpage");    
+        StateHasChanged();
+        NavigationManager.NavigateTo("/userdashboard");    
     }
     else
     {

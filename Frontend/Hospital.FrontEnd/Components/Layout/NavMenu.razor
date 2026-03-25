@@ -1,4 +1,8 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+﻿@inject NavigationManager NavigationManager
+
+@if (!NavigationManager.Uri.Contains("userdashboard"))
+{
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
   <div class="container-fluid d-flex justify-content-between align-items-center">
     <a class="navbar-brand d-flex align-items-center" href="#">
       <img src="/images/h.png" alt="Logo" width="40" height="40" class="me-2">   
@@ -11,9 +15,10 @@
     </div>
   </div>
 </nav>
+}
 
 <style>
 .custom-navbar {
-  background-color: #11b8ca; /* info-emphasis color (dark teal) */
+  background-color: #11b8ca; 
 }
 </style>

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Hospital.FrontEnd.bundle.scp.css"
     },
     {
+      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\CSS\\style.css",
+      "PackagePath": "staticwebassets\\CSS\\style.css"
+    },
+    {
       "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\h.png",
       "PackagePath": "staticwebassets\\Images\\h.png"
     },
