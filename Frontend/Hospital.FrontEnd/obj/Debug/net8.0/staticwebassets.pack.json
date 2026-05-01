@@ -1,31 +1,43 @@
 {
   "Files": [
     {
-      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Hospital.FrontEnd.bundle.scp.css",
+      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Hospital.FrontEnd.bundle.scp.css",
       "PackagePath": "staticwebassets\\Hospital.FrontEnd.bundle.scp.css"
     },
     {
-      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\CSS\\style.css",
+      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\CSS\\style.css",
       "PackagePath": "staticwebassets\\CSS\\style.css"
     },
     {
-      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\h.png",
+      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\HealthTips.jpg",
+      "PackagePath": "staticwebassets\\Images\\HealthTips.jpg"
+    },
+    {
+      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\HealthTips2.jpg",
+      "PackagePath": "staticwebassets\\Images\\HealthTips2.jpg"
+    },
+    {
+      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\h.png",
       "PackagePath": "staticwebassets\\Images\\h.png"
     },
     {
-      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\hospital1.jpg",
+      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\hospital1.jpg",
       "PackagePath": "staticwebassets\\Images\\hospital1.jpg"
     },
     {
-      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\hospital2.jpg",
+      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\hospital2.jpg",
       "PackagePath": "staticwebassets\\Images\\hospital2.jpg"
     },
     {
-      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\hospital4.jpg",
+      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\hospital4.jpg",
       "PackagePath": "staticwebassets\\Images\\hospital4.jpg"
     },
     {
-      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\app.css",
+      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\u1.jpg",
+      "PackagePath": "staticwebassets\\Images\\u1.jpg"
+    },
+    {
+      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {

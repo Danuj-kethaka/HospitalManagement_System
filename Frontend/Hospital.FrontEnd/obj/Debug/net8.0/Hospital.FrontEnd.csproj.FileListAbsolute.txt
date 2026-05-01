@@ -27,3 +27,11 @@ D:\GIT HUB Projects\Dotnet First Project\Frontend\Hospital.FrontEnd\obj\Debug\ne
 D:\GIT HUB Projects\Dotnet First Project\Frontend\Hospital.FrontEnd\obj\Debug\net8.0\Hospital.FrontEnd.genruntimeconfig.cache
 D:\GIT HUB Projects\Dotnet First Project\Frontend\Hospital.FrontEnd\obj\Debug\net8.0\ref\Hospital.FrontEnd.dll
 D:\GIT HUB Projects\Dotnet First Project\frontend\hospital.frontend\obj\Debug\net8.0\Hospital.FrontEnd.sourcelink.json
+D:\GIT HUB Projects\Dotnet First Project\frontend\hospital.frontend\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\GIT HUB Projects\Dotnet First Project\frontend\hospital.frontend\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\GIT HUB Projects\Dotnet First Project\frontend\hospital.frontend\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\GIT HUB Projects\Dotnet First Project\frontend\hospital.frontend\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\GIT HUB Projects\Dotnet First Project\frontend\hospital.frontend\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\GIT HUB Projects\Dotnet First Project\frontend\hospital.frontend\obj\Debug\net8.0\Hospital.FrontEnd.csproj.AssemblyReference.cache
+D:\GIT HUB Projects\Dotnet First Project\frontend\hospital.frontend\obj\Debug\net8.0\Hospital.6A61CA9C.Up2Date
+D:\GIT HUB Projects\Dotnet First Project\frontend\hospital.frontend\bin\Debug\net8.0\Radzen.Blazor.dll

@@ -3,15 +3,19 @@ using System.ComponentModel.DataAnnotations;
 
 public class UserDetails
 {
-    public int Id {get; set;}
+    public string? Id { get; set; }
 
-    [Required(ErrorMessage = "The Initials field is required")]
-    public required string Initials {get; set;}
-    
-    [Required(ErrorMessage = "The Email field is required")]
-    public required string Email{get; set;}
-    
-    [Required(ErrorMessage = "The Password field is required")]
-    public required string Password{get; set;}
+    [Required(ErrorMessage = "Email is required")]
+    [EmailAddress]
+    public string Email { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Initials are required")]
+    public string Initials { get; set; } = string.Empty;
+
+    public string? Password { get; set; }
+
+    public bool EnableNotification { get; set; } = true;
+
+    public string? Role { get; set; }
 
 }

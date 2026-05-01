@@ -48,6 +48,23 @@ public static class AppointmentEndPoints
             return Results.Ok(appointments);
         }).RequireAuthorization();
         
+        
+        group.MapGet("/all", async (ApplicationDbContext dbContext, ClaimsPrincipal user) =>
+        {
+            
+            if (!user.IsInRole("Admin"))
+            {
+                return Results.Forbid();   
+            }
+
+            var appointments = await dbContext.appointments.ToListAsync();
+
+            return Results.Ok(appointments);
+        }).RequireAuthorization();
+
+      
+
+
 
         return group;
 

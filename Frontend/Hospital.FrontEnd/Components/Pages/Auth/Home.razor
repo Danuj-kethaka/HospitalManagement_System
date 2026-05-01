@@ -51,17 +51,29 @@
 
     if(response.IsSuccessStatusCode)
     {
-        var result = await response.Content.ReadFromJsonAsync<TokenResponse>();
-        await JS.InvokeVoidAsync("localStorage.setItem","token",result!.accessToken);
-        StateHasChanged();
-        NavigationManager.NavigateTo("/userdashboard");    
+    var result = await response.Content.ReadFromJsonAsync<TokenResponse>();
+
+    var token = result!.accessToken;
+
+    await JS.InvokeVoidAsync("localStorage.setItem","token", token);
+
+    var user = await authClient.GetCurrentUser(token);
+
+    if(user != null && user.Role == "Admin")
+        {
+            NavigationManager.NavigateTo("/AdminDashboard");
+        }
+    else
+        {
+            NavigationManager.NavigateTo("/userdashboard");
+        }
     }
     else
-    {
-        errorMessage ="Invalid email or password";
+        {
+            errorMessage ="Invalid email or password";
+        }
     }
 
-   }
 
    public class TokenResponse
    {

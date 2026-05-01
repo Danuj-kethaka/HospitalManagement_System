@@ -1,0 +1,94 @@
+﻿@page "/AdminAppointments"
+@using Hospital.FrontEnd.Components.Layout
+@layout AdminSideBar
+@using Radzen
+@using Hospital.FrontEnd.Clients
+@using Radzen.Blazor
+@inject AppointmentClient appointmentClient
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@inject IJSRuntime JS
+@inject NavigationManager NavigationManager
+
+
+<div class="card-header text-center fw-bold">
+    <span>Appointments</span>
+</div>
+
+<div class="card-body">
+      <div style="max-width: 1300px; margin: auto;">
+    @if (isLoadingAppointments)
+        {
+            <p class="text-center">Loading your appointments...</p>
+        }
+        else if (appointments == null || !appointments.Any())
+        {
+            <p class="text-muted text-center">You have no appointments yet.</p>
+        }
+        else
+        {
+   <RadzenDataGrid TItem="Appointment"
+                Data="@appointments"
+                AllowPaging="true"
+                PageSize="5"
+                AllowSorting="true"
+                AllowFiltering="true"
+                Class="mt-3">
+
+    <Columns>
+        <RadzenDataGridColumn TItem="Appointment" Property="DoctoreName" Title="Doctor" Width="150px" />
+
+        <RadzenDataGridColumn TItem="Appointment" Property="DepartmentName" Title="Department" Width="150px" />
+
+        <RadzenDataGridColumn TItem="Appointment" Property="DateTime" Title="Date" Width="200px">
+            <Template Context="apt">
+                @apt.DateTime.ToString("dd MMM yyyy hh:mm tt")
+            </Template>
+        </RadzenDataGridColumn>
+    </Columns>
+
+</RadzenDataGrid>
+
+    }
+      </div>
+</div>
+
+
+
+
+
+
+@code {
+    private CreateAppointment newAppointment = new();
+    private List<Appointment>? appointments;
+    private string? successMessage;
+    private string? errorMessage;
+    private bool isLoading = false;
+    private bool isLoadingAppointments = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadMyAppointments();
+        isLoadingAppointments = false;
+    }
+
+    private async Task LoadMyAppointments()
+    {
+        try
+        {
+            var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
+
+            if (!string.IsNullOrWhiteSpace(token))
+            {
+               appointments = await appointmentClient.GetAllAppointmentAsync(token);
+            }
+            else
+            {
+                appointments = new();
+            }
+        }
+        catch
+        {
+            appointments = new();
+        }
+    }
+}

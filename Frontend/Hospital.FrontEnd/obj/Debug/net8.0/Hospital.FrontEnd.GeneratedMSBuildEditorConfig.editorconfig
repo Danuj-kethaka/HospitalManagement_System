@@ -9,55 +9,83 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Hospital.FrontEnd
 build_property.RootNamespace = Hospital.FrontEnd
-build_property.ProjectDir = D:\GIT HUB Projects\Dotnet First Project\frontend\hospital.frontend\
+build_property.ProjectDir = D:\GIT HUB Projects\Dotnet First Project\frontend\Hospital.FrontEnd\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\GIT HUB Projects\Dotnet First Project\frontend\hospital.frontend
+build_property.MSBuildProjectDirectory = D:\GIT HUB Projects\Dotnet First Project\frontend\Hospital.FrontEnd
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/GIT HUB Projects/Dotnet First Project/frontend/hospital.frontend/Components/App.razor]
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GIT HUB Projects/Dotnet First Project/frontend/hospital.frontend/Components/Layout/NavMenu.razor]
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Layout/AdminSideBar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcQWRtaW5TaWRlQmFyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GIT HUB Projects/Dotnet First Project/frontend/hospital.frontend/Components/Layout/UserSideBar.razor]
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Layout/NavMenu2.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudTIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Layout/NavMenu3.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudTMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Layout/NavMenu4.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudTQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Layout/UserSideBar.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcVXNlclNpZGVCYXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GIT HUB Projects/Dotnet First Project/frontend/hospital.frontend/Components/Pages/AdminDashboard.razor]
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Pages/AdminAppointment.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pbkFwcG9pbnRtZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Pages/AdminDashboard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pbkRhc2hib2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GIT HUB Projects/Dotnet First Project/frontend/hospital.frontend/Components/Pages/Auth/Home.razor]
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Pages/AdminUsersPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pblVzZXJzUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Pages/Auth/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoXEhvbWUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GIT HUB Projects/Dotnet First Project/frontend/hospital.frontend/Components/Pages/Auth/RegisterPage.razor]
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Pages/Auth/RegisterPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoXFJlZ2lzdGVyUGFnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GIT HUB Projects/Dotnet First Project/frontend/hospital.frontend/Components/Pages/Error.razor]
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Pages/Auth/UserAccount.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoXFVzZXJBY2NvdW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GIT HUB Projects/Dotnet First Project/frontend/hospital.frontend/Components/Pages/User Dashboard.razor]
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Pages/User Dashboard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyIERhc2hib2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GIT HUB Projects/Dotnet First Project/frontend/hospital.frontend/Components/Routes.razor]
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GIT HUB Projects/Dotnet First Project/frontend/hospital.frontend/Components/_Imports.razor]
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/GIT HUB Projects/Dotnet First Project/frontend/hospital.frontend/Components/Layout/MainLayout.razor]
+[D:/GIT HUB Projects/Dotnet First Project/frontend/Hospital.FrontEnd/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-8lbengjykb

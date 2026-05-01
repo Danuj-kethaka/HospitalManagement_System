@@ -1,0 +1,23 @@
+﻿@inject NavigationManager NavigationManager
+@inherits LayoutComponentBase
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="/images/h.png" alt="Logo" width="40" height="40" class="me-2">   
+      <span style="font-size: 22px; font-weight: bold;">
+        Hospital Management System
+      </span>
+    </a>
+  </div>
+</nav>
+
+<div class="container mt-3">
+    @Body  
+</div>
+
+<style>
+.custom-navbar {
+  background-color: #11b8ca; 
+}
+</style>

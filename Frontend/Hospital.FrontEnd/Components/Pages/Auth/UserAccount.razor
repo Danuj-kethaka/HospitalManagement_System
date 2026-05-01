@@ -1,0 +1,90 @@
+﻿@page "/useraccount"
+@using Hospital.FrontEnd.Components.Layout
+@layout NavMenu2
+@inject AuthClient authClient
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
+
+
+<div class="container" style="margin-top: 100px;">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card mt-3">
+                    <div class="card card-teal">
+                        <div class="card-header bg-teal text-center">
+                           User Account
+                        </div>
+                        <div class="card-body">
+                            @if (!isLoaded)
+                            {
+                                <p>Loading...</p>
+                            }
+                            else if (string.IsNullOrEmpty(user.Email))
+                            {
+                                <p style="color:red;">No user data loaded</p>
+                            }
+                            else
+                            {
+                            <div class="text-center mt-3">
+                                <img src="/images/u1.jpg" class="rounded-circle shadow" width="120" height="120" />
+                            </div>
+                            <form  FormName="LoginForm" >      
+                                <div class="mb-6" style="margin-top: 20px;">
+                                   <InputText @bind-Value="user.Email" class="form-control" readonly />   
+                                </div>
+                                <div class="mb-6" style="margin-top: 20px; ">
+                                    <InputText @bind-Value="user.Initials" class="form-control" readonly />  
+                                </div>
+                                <div class="mb-3 mt-3 text-center">
+                                    <button type="button" @onclick="Logout" class="btn btn-sm btn-danger">Sign out</button>
+                                </div>
+                            </form>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<style>
+.bg-teal{
+    background-color: #11b8ca;
+}
+</style>
+
+@code {
+    private UserDetails user = new();
+    private bool isLoaded = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
+
+             Console.WriteLine($"TOKEN: {token}");
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                var result = await authClient.GetCurrentUser(token);
+
+                if (result != null)
+                {
+                    user = result;
+                }
+
+            }
+                isLoaded = true;
+                StateHasChanged(); 
+            }
+        }
+
+        private async Task Logout(){
+            await JS.InvokeVoidAsync("localStorage.removeItem","token");
+            user = new UserDetails();
+            Navigation.NavigateTo("/",true);
+        }
+
+}

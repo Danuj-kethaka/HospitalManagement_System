@@ -1,4 +1,6 @@
+using System.Net.Http.Json;
 using Hospital.FrontEnd.Models;
+using Microsoft.AspNetCore.Components;
 
 public class AuthClient
 {
@@ -17,5 +19,45 @@ public class AuthClient
     public async Task<HttpResponseMessage> Login (LoginDetails login)
     {
         return await httpClient.PostAsJsonAsync("login",login);
+        
     }
+
+    public async Task<UserDetails?> GetCurrentUser(string token)
+    {
+        httpClient.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        var response = await httpClient.GetAsync("users/me");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            Console.WriteLine($"ERROR: {response.StatusCode}");
+            return null;
+        }
+
+        var data = await response.Content.ReadFromJsonAsync<UserDetails>();
+        return data;
+    }
+
+    public async Task<UserDetails?> GetAllUsers(string token)
+    {
+        httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        var response = await httpClient.GetAsync("users/all");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            Console.WriteLine($"ERROR: {response.StatusCode}");
+            return null;
+        }
+
+        var data = await response.Content.ReadFromJsonAsync<UserDetails>();
+        return data;
+    }
+
+
+  
+   
+
+   
 }

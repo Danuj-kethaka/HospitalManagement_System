@@ -12,3 +12,4 @@ public  record class CreateAppointment
   [Required] DateTime DateTime
 
 );
+  

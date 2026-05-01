@@ -61,16 +61,17 @@ if(app.Environment.IsDevelopment())
     }
 }
 
-app.MapGet("me", (ClaimsPrincipal claimsPrincipal) =>
+app.MapGet("/userdashboard", (ClaimsPrincipal claimsPrincipal) =>
 {
     return Results.Ok(claimsPrincipal.Claims.ToDictionary(c => c.Type, c => c.Value));
-}).RequireAuthorization(policy => policy.RequireRole(Roles.Member));
+}).RequireAuthorization(policy => policy.RequireRole(Roles.Admin));
 
 RegisterUser.MapEndpoint(app);
 LoginUser.MapEndpoint(app);
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapAppointmentEndPoints();
+app.MapUserEndPoints();
 
 app.Run();
 

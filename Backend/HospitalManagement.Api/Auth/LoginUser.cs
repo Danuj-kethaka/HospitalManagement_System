@@ -31,6 +31,7 @@ public static class LoginUser
             [
                 new(JwtRegisteredClaimNames.Sub, user.Id),
                 new (JwtRegisteredClaimNames.Email, user.Email!),
+                new("name",user.Initials),
                 new Claim(ClaimTypes.NameIdentifier, user.Id), 
                 new Claim(ClaimTypes.Email, user.Email!),
                 ..roles.Select(r => new Claim(ClaimTypes.Role, r) )
