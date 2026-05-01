@@ -58,13 +58,17 @@
     private UserDetails user = new();
     private bool isLoaded = false;
 
+   private bool _hasLoadedUser = false;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (firstRender)
+        if (!_hasLoadedUser)
         {
+            _hasLoadedUser = true;
+
             var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
 
-             Console.WriteLine($"TOKEN: {token}");
+            Console.WriteLine($"TOKEN: {token}");
 
             if (!string.IsNullOrEmpty(token))
             {
@@ -74,17 +78,16 @@
                 {
                     user = result;
                 }
-
             }
-                isLoaded = true;
-                StateHasChanged(); 
+
+            isLoaded = true;
+            StateHasChanged();
+        }
+    }
+            private async Task Logout(){
+                await JS.InvokeVoidAsync("localStorage.removeItem","token");
+                user = new UserDetails();
+                Navigation.NavigateTo("/",true);
             }
-        }
 
-        private async Task Logout(){
-            await JS.InvokeVoidAsync("localStorage.removeItem","token");
-            user = new UserDetails();
-            Navigation.NavigateTo("/",true);
-        }
-
-}
+    }

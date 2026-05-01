@@ -4,3 +4,79 @@
 @using Radzen
 @using Hospital.FrontEnd.Clients
 @using Radzen.Blazor
+
+@inject AuthClient authClient
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@inject IJSRuntime JS
+@inject NavigationManager NavigationManager
+
+<div class="card-header text-center fw-bold">
+    <span>All Users</span>
+</div>
+
+<div class="card-body">
+    <div style="max-width: 1300px; margin: auto;">
+
+        @if (isLoadingUsers)
+        {
+            <p class="text-center">Loading users...</p>
+        }
+        else if (users == null || !users.Any())
+        {
+            <p class="text-muted text-center">No users found.</p>
+        }
+        else
+        {
+            <RadzenDataGrid TItem="UserDetails"
+                            Data="@users"
+                            AllowPaging="true"
+                            PageSize="5"
+                            AllowSorting="true"
+                            AllowFiltering="true"
+                            Class="mt-3">
+
+                <Columns>
+                    <RadzenDataGridColumn TItem="UserDetails" Property="Initials" Title="Initials" Width="150px" />
+                    
+                    <RadzenDataGridColumn TItem="UserDetails" Property="Email" Title="Email" Width="200px" />
+                    
+                    <RadzenDataGridColumn TItem="UserDetails" Property="Role" Title="Role" Width="120px" />
+                </Columns>
+
+            </RadzenDataGrid>
+        }
+
+    </div>
+</div>
+
+@code {
+    private List<UserDetails>? users;
+    private bool isLoadingUsers = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadUsers();
+        isLoadingUsers = false;
+    }
+
+    private async Task LoadUsers()
+    {
+        try
+        {
+            var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
+
+            if (!string.IsNullOrWhiteSpace(token))
+            {
+                users = await authClient.GetAllUsers(token);
+            }
+            else
+            {
+                users = new();
+            }
+        }
+        catch
+        {
+            users = new();
+        }
+    }
+}

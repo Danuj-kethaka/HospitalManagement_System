@@ -2,6 +2,11 @@
 @inject IJSRuntime JS
 @inject NavigationManager Navigation
 
+<HeadContent>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+</HeadContent>
+
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
   <div class="container-fluid d-flex justify-content-between align-items-center">
     <a class="navbar-brand d-flex align-items-center" href="#">
@@ -16,16 +21,7 @@
   </div>
 </nav>
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./CSS/style.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
+
     <div class="sidebar close">
       <div class="logo-details">
        <i class="fa-sharp fa-solid fa-hospital"></i>
@@ -83,6 +79,7 @@
       </div>
      @Body
     </section>
+    
     <script>
       let arrow = document.querySelectorAll(".arrow");
       for (var i = 0; i < arrow.length; i++) {
@@ -98,7 +95,5 @@
         sidebar.classList.toggle("close");
       });
     </script>
-  </body>
-</html>
 
 

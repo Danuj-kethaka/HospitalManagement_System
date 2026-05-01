@@ -39,25 +39,13 @@ public class AuthClient
         return data;
     }
 
-    public async Task<UserDetails?> GetAllUsers(string token)
+    public async Task<List<UserDetails>> GetAllUsers(string token)
     {
-        httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+        httpClient.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-        var response = await httpClient.GetAsync("users/all");
-
-        if (!response.IsSuccessStatusCode)
-        {
-            Console.WriteLine($"ERROR: {response.StatusCode}");
-            return null;
-        }
-
-        var data = await response.Content.ReadFromJsonAsync<UserDetails>();
-        return data;
+        return await httpClient.GetFromJsonAsync<List<UserDetails>>("users/all")
+            ?? new List<UserDetails>();
     }
 
-
-  
-   
-
-   
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ebM8lDTXpsX4xoPuTSc+kKzjFKdhVZCRjSZIEVNP9Gg=",
+  "Hash": "vpO2wLvXXBxlVuqi6zT7FiCMvOST8bS00UYhMOqADMw=",
   "Source": "Hospital.FrontEnd",
   "BasePath": "_content/Hospital.FrontEnd",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "Hospital.FrontEnd\\wwwroot",
       "Source": "Hospital.FrontEnd",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "Pattern": "**"
     }
@@ -701,10 +701,10 @@
       "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\Radzen.Blazor.min.js"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Hospital.FrontEnd.styles.css",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Hospital.FrontEnd.styles.css",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Hospital.FrontEnd.styles.css",
       "AssetKind": "All",
@@ -717,13 +717,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Hospital.FrontEnd.styles.css"
+      "OriginalItemSpec": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Hospital.FrontEnd.styles.css"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Hospital.FrontEnd.bundle.scp.css",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Hospital.FrontEnd.bundle.scp.css",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Hospital.FrontEnd.bundle.scp.css",
       "AssetKind": "All",
@@ -736,13 +736,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Hospital.FrontEnd.bundle.scp.css"
+      "OriginalItemSpec": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Hospital.FrontEnd.bundle.scp.css"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\app.css",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\app.css",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -758,10 +758,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\CSS\\style.css",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\CSS\\style.css",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "CSS/style.css",
       "AssetKind": "All",
@@ -777,10 +777,10 @@
       "OriginalItemSpec": "wwwroot\\CSS\\style.css"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\h.png",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\h.png",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/h.png",
       "AssetKind": "All",
@@ -796,10 +796,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\h.png"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\HealthTips.jpg",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\HealthTips.jpg",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/HealthTips.jpg",
       "AssetKind": "All",
@@ -815,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\HealthTips.jpg"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\HealthTips2.jpg",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\HealthTips2.jpg",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/HealthTips2.jpg",
       "AssetKind": "All",
@@ -834,10 +834,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\HealthTips2.jpg"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\hospital1.jpg",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\hospital1.jpg",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/hospital1.jpg",
       "AssetKind": "All",
@@ -853,10 +853,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\hospital1.jpg"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\hospital2.jpg",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\hospital2.jpg",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/hospital2.jpg",
       "AssetKind": "All",
@@ -872,10 +872,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\hospital2.jpg"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\hospital4.jpg",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\hospital4.jpg",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/hospital4.jpg",
       "AssetKind": "All",
@@ -891,10 +891,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\hospital4.jpg"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\u1.jpg",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\u1.jpg",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/u1.jpg",
       "AssetKind": "All",

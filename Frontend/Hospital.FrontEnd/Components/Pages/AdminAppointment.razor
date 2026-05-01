@@ -53,10 +53,6 @@
 </div>
 
 
-
-
-
-
 @code {
     private CreateAppointment newAppointment = new();
     private List<Appointment>? appointments;
@@ -65,7 +61,7 @@
     private bool isLoading = false;
     private bool isLoadingAppointments = true;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
         await LoadMyAppointments();
         isLoadingAppointments = false;
