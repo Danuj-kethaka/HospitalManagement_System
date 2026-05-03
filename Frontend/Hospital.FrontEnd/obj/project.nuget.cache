@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fBHO4+61P9g=",
+  "dgSpecHash": "3ORBCNjrKi0=",
   "success": true,
-  "projectFilePath": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\Hospital.FrontEnd.csproj",
+  "projectFilePath": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\Hospital.FrontEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\jquery\\1.7.0\\jquery.1.7.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\jquery-timepicker-jt\\1.11.15\\jquery-timepicker-jt.1.11.15.nupkg.sha512",

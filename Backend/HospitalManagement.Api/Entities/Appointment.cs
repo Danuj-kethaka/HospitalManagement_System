@@ -15,4 +15,6 @@ public class Appointment
    public required string UserEmail {get; set;}
 
    public DateTime DateTime {get; set;}
+
+   public string Status { get; set; } = "Pending";
 }

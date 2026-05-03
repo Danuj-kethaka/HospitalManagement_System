@@ -61,11 +61,15 @@
     private bool isLoading = false;
     private bool isLoadingAppointments = true;
 
-    protected override async Task OnParametersSetAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+{
+    if (firstRender)
     {
         await LoadMyAppointments();
         isLoadingAppointments = false;
+        StateHasChanged();
     }
+}
 
     private async Task LoadMyAppointments()
     {

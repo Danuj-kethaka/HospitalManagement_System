@@ -17,7 +17,6 @@ builder.Services.AddScoped<Radzen.NotificationService>();
 builder.Services.AddScoped<Radzen.DialogService>();
 builder.Services.AddScoped<Radzen.TooltipService>();
 builder.Services.AddScoped<Radzen.ContextMenuService>();
-builder.Services.AddScoped<AuthService>();
 
 
 var app = builder.Build();

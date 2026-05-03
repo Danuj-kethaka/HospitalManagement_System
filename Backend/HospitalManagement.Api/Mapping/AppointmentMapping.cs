@@ -17,9 +17,4 @@ public static class AppointmentMapping
         };
     }
 
-    
-
-
-
-
 }

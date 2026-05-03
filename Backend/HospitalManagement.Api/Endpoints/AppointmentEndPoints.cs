@@ -62,13 +62,25 @@ public static class AppointmentEndPoints
             return Results.Ok(appointments);
         }).RequireAuthorization();
 
-      
+        group.MapPut("/{id}/status", async (int id, UpdateAppointmentStatus request, ApplicationDbContext dbContext, ClaimsPrincipal user) =>
+        {
+            if (!user.IsInRole("Admin"))
+                return Results.Forbid();
 
+            var appointment = await dbContext.appointments.FindAsync(id);
 
+            if (appointment is null)
+                return Results.NotFound();
 
+            appointment.Status = request.Status; // "Accepted" or "Rejected"
+
+            await dbContext.SaveChangesAsync();
+
+            return Results.Ok(appointment);
+        }).RequireAuthorization();
+
+    
         return group;
-
-
 
     }
 }
