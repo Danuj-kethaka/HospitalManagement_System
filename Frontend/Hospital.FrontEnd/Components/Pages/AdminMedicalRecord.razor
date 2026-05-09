@@ -11,151 +11,467 @@
 @rendermode InteractiveServer
 
 <style>
+    .page-title {
+        font-weight: 700;
+        color: #1d2939;
+        font-size: 30px;
+    }
+
+    .sub-text {
+        color: #667085;
+        font-size: 14px;
+    }
+
     .glass-card {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-        border: none;
+        background: #ffffff;
+        border-radius: 18px;
+        border: 1px solid #eaecf0;
+        box-shadow: 0 2px 12px rgba(16,24,40,0.05);
     }
 
-    .record-item {
-        border: 1px solid #f1f1f1;
+    .search-box {
         border-radius: 12px;
-        padding: 12px;
+        border: 1px solid #d0d5dd;
+        height: 48px;
+        padding-left: 15px;
+        font-size: 15px;
+    }
+
+    .search-box:focus {
+        border-color: #1570ef;
+        box-shadow: 0 0 0 4px rgba(21,112,239,0.12);
+    }
+
+    .section-title {
+        font-weight: 700;
+        color: #101828;
+        font-size: 20px;
+    }
+
+    .custom-input,
+    .custom-select,
+    textarea.form-control {
+        border-radius: 12px;
+        border: 1px solid #d0d5dd;
+        min-height: 48px;
+        font-size: 14px;
+    }
+
+    .custom-input:focus,
+    .custom-select:focus,
+    textarea.form-control:focus {
+        border-color: #1570ef;
+        box-shadow: 0 0 0 4px rgba(21,112,239,0.12);
+    }
+
+    .btn-primary-modern {
+        background: #1570ef;
+        border: none;
+        border-radius: 12px;
+        height: 48px;
+        font-weight: 600;
         transition: 0.2s;
-        margin-bottom: 10px;
-        background: #fff;
     }
 
-    .record-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(239, 241, 240, 0.08);
+    .btn-primary-modern:hover {
+        background: #175cd3;
+        transform: translateY(-1px);
     }
 
-    .badge-user {
+    .record-table {
+        width: 100%;
+    }
+
+    .record-table thead {
+        background: #f9fafb;
+        border-bottom: 1px solid #eaecf0;
+    }
+
+    .record-table th {
+        padding: 16px;
+        color: #475467;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .record-table td {
+        padding: 18px 16px;
+        vertical-align: top;
+        border-bottom: 1px solid #f2f4f7;
+    }
+
+    .record-row {
+        transition: 0.2s;
+    }
+
+    .record-row:hover {
+        background: #f8fbff;
+    }
+
+    .record-title {
+        font-weight: 700;
+        color: #1570ef;
+        font-size: 15px;
+    }
+
+    .record-description {
+        color: #667085;
+        font-size: 14px;
+        margin-top: 6px;
+        line-height: 1.5;
+    }
+
+    .user-badge {
+        background: #eff8ff;
+        color: #175cd3;
+        border-radius: 999px;
+        padding: 8px 14px;
         font-size: 12px;
-        padding: 5px 10px;
-        border-radius: 20px;
+        font-weight: 600;
+        display: inline-block;
+    }
+
+    .date-text {
+        color: #667085;
+        font-size: 13px;
+    }
+
+    .medical-badge {
+        background: #ecfdf3;
+        color: #027a48;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
     }
 
     .scroll-area {
-        max-height: 600px;
+        max-height: 650px;
         overflow-y: auto;
     }
 
-    .record-item {
-    border: 1px solid #f1f1f1;
-    border-radius: 12px;
-    padding: 14px;
-    transition: 0.2s;
-    margin-bottom: 10px;
-    background: #fff;
+    .empty-box {
+        padding: 80px 20px;
+    }
+
+    .empty-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: #f2f4f7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        font-size: 28px;
+        color: #98a2b3;
+    }
+
+    .stats-card {
+        background: linear-gradient(135deg, #1570ef, #175cd3);
+        border-radius: 18px;
+        color: white;
+        padding: 22px;
+    }
+
+    .stats-number {
+        font-size: 34px;
+        font-weight: 700;
+    }
+
+    .stats-label {
+        opacity: 0.9;
+    }
+    .stats-mini-card {
+    background: linear-gradient(135deg, #1570ef, #175cd3);
+    border-radius: 14px;
+    padding: 10px 18px;
+    color: white;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(21,112,239,0.18);
+    }
+
+    .stats-mini-number {
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .stats-mini-label {
+        font-size: 13px;
+        opacity: 0.9;
+        font-weight: 500;
+    }
+
+    @@media(max-width: 768px) {
+        .record-table {
+            min-width: 850px;
+        }
     }
 </style>
 
-<div class="container-fluid mt-3">
+<div class="container-fluid py-4">
 
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <input class="form-control w-100" placeholder="Search records..."
-               @bind="searchText" @bind:event="oninput" />
+<div class="glass-card p-3 mb-4">
+
+    <div class="row align-items-center g-3">
+
+        <div class="col-md-9">
+
+            <input class="form-control search-box"
+                   placeholder="🔍 Search by title or user email..."
+                   @bind="searchText"
+                   @bind:event="oninput" />
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="stats-mini-card">
+
+                <div class="stats-mini-number">
+                    @FilteredRecords.Count
+                </div>
+
+                <div class="stats-mini-label">
+                    Records Found
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
+
+</div>
 
     @if (!string.IsNullOrEmpty(successMessage))
     {
-        <div class="alert alert-success">@successMessage</div>
+        <div class="alert alert-success border-0 shadow-sm">
+            @successMessage
+        </div>
     }
 
     @if (!string.IsNullOrEmpty(errorMessage))
     {
-        <div class="alert alert-danger">@errorMessage</div>
+        <div class="alert alert-danger border-0 shadow-sm">
+            @errorMessage
+        </div>
     }
 
-    <div class="row g-3">
+    <div class="row g-4">
 
         <!-- CREATE PANEL -->
-        <div class="col-md-4">
-            <div class="glass-card p-3">
-                <h5 class="mb-3">Create Medical Record</h5>
+        <div class="col-lg-4">
+
+            <div class="glass-card p-4">
+
+                <div class="d-flex align-items-center mb-4">
+                    <div class="me-3">
+                        <i class="fa-solid fa-notes-medical text-primary fs-3"></i>
+                    </div>
+
+                    <div>
+                        <div class="section-title">
+                            Create Record
+                        </div>
+
+                        <small class="text-muted">
+                            Add new patient medical records
+                        </small>
+                    </div>
+                </div>
 
                 <EditForm Model="newRecord" OnValidSubmit="CreateRecord">
+
                     <DataAnnotationsValidator />
-                    <select class="form-control mb-2" @bind="newRecord.UserId">
-                        <option value="">-- Select User --</option>
-                        @foreach (var u in users)
-                        {
-                            <option value="@u.Id">@u.Email</option>
-                        }
-                    </select>
 
-                    <InputText class="form-control mb-2"
-                               placeholder="Title"
-                               @bind-Value="newRecord.Title" />
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">
+                            Select User
+                        </label>
 
-                    <InputTextArea class="form-control mb-3"
-                                   placeholder="Description"
-                                   @bind-Value="newRecord.Description" />
+                        <select class="form-select custom-select"
+                                @bind="newRecord.UserId">
 
-                    <button class="btn btn-primary w-100" disabled="@isSaving">
-                        @(isSaving ? "Saving..." : "Create Record")
+                            <option value="">
+                                -- Select User --
+                            </option>
+
+                            @foreach (var u in users)
+                            {
+                                <option value="@u.Id">
+                                    @u.Email
+                                </option>
+                            }
+
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">
+                            Record Title
+                        </label>
+
+                        <InputText class="form-control custom-input"
+                                   placeholder="Enter medical record title"
+                                   @bind-Value="newRecord.Title" />
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            Description
+                        </label>
+
+                        <InputTextArea class="form-control"
+                                       rows="6"
+                                       placeholder="Enter detailed medical description..."
+                                       @bind-Value="newRecord.Description" />
+                    </div>
+
+                    <button class="btn btn-primary-modern w-100"
+                            disabled="@isSaving">
+
+                        <i class="fa-solid fa-floppy-disk me-2"></i>
+
+                        @(isSaving ? "Saving..." : "Create Medical Record")
+
                     </button>
+
                 </EditForm>
+
             </div>
+
         </div>
 
-        <!-- RECORD LIST -->
-        <div class="col-md-8">
-            <div class="glass-card p-3">
+        <!-- RECORDS TABLE -->
+        <div class="col-lg-8">
 
-                <h5 class="mb-3">All Medical Records</h5>
+            <div class="glass-card">
+
+                <div class="p-4 border-bottom">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="section-title">
+                                All Medical Records
+                            </div>
+
+                            <small class="text-muted">
+                                View and manage all hospital records
+                            </small>
+                        </div>
+
+                        <div class="medical-badge">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                            Medical Data
+                        </div>
+                    </div>
+                </div>
 
                 @if (isLoading)
                 {
-                    <p>Loading records...</p>
+                    <div class="p-5 text-center">
+                        <div class="spinner-border text-primary"></div>
+
+                        <p class="mt-3 text-muted">
+                            Loading records...
+                        </p>
+                    </div>
                 }
                 else if (FilteredRecords.Count == 0)
                 {
-                    <div class="text-center text-muted py-5">
-                        <i class="fa fa-folder-open fa-2x"></i>
-                        <p class="mt-2">No medical records found</p>
+                    <div class="empty-box text-center">
+
+                        <div class="empty-icon">
+                            <i class="fa-regular fa-folder-open"></i>
+                        </div>
+
+                        <h5 class="mt-4 fw-bold">
+                            No Medical Records Found
+                        </h5>
+
+                        <p class="text-muted">
+                            There are currently no medical records available.
+                        </p>
+
                     </div>
                 }
                 else
                 {
                     <div class="scroll-area">
-                        @foreach (var r in FilteredRecords.OrderByDescending(x => x.CreatedAt))
-                        {
-                            <div class="record-item">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <div class="fw-bold text-primary">
-                                            @r.Title
-                                        </div>
 
-                                        <small class="text-muted">
-                                            @r.CreatedAt.ToString("dd MMM yyyy hh:mm tt")
-                                        </small>
+                        <table class="record-table">
 
-                                        <div class="mt-2 text-secondary">
-                                            @r.Description
-                                        </div>
-                                    </div>
-                                    <div class="text-end">
-                                        <span class="badge bg-dark badge-user">
-                                            @r.UserEmail
-                                        </span>
-                                    </div>
+                            <thead>
+                                <tr>
+                                    <th>Medical Record</th>
+                                    <th>User</th>
+                                    <th>Date Created</th>
+                                </tr>
+                            </thead>
 
-                                </div>
+                            <tbody>
 
-                            </div>
-                        }
+                                @foreach (var r in FilteredRecords.OrderByDescending(x => x.CreatedAt))
+                                {
+                                    <tr class="record-row">
+
+                                        <td style="width:60%;">
+
+                                            <div class="record-title">
+                                                <i class="fa-solid fa-file-waveform text-primary me-2"></i>
+                                                @r.Title
+                                            </div>
+
+                                            <div class="record-description">
+                                                @r.Description
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+
+                                            <span class="user-badge">
+                                                <i class="fa-solid fa-user-doctor me-1"></i>
+                                                @r.UserEmail
+                                            </span>
+
+                                        </td>
+
+                                        <td>
+
+                                            <div class="date-text fw-semibold">
+                                                @r.CreatedAt.ToString("dd MMM yyyy")
+                                            </div>
+
+                                            <small class="text-muted">
+                                                @r.CreatedAt.ToString("hh:mm tt")
+                                            </small>
+
+                                        </td>
+
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                        </table>
+
                     </div>
                 }
 
             </div>
+
         </div>
 
     </div>
+
 </div>
 
 @code {
@@ -186,10 +502,15 @@
     {
         isLoading = true;
 
-        var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
+        var token = await JS.InvokeAsync<string>(
+            "localStorage.getItem",
+            "token"
+        );
 
         users = await authClient.GetAllUsers(token);
-        records = await medicalRecordClient.GetAllMedicalRecordsAsync(token);
+
+        records = await medicalRecordClient
+            .GetAllMedicalRecordsAsync(token);
 
         isLoading = false;
     }
@@ -198,21 +519,35 @@
     {
         isSaving = true;
 
+        successMessage = null;
+        errorMessage = null;
+
         try
         {
-            var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
+            var token = await JS.InvokeAsync<string>(
+                "localStorage.getItem",
+                "token"
+            );
 
-            var response = await medicalRecordClient.CreateMedicalRecordAsync(newRecord, token);
+            var response =
+                await medicalRecordClient.CreateMedicalRecordAsync(
+                    newRecord,
+                    token
+                );
 
             if (response.IsSuccessStatusCode)
             {
-                successMessage = "Medical record created successfully!";
+                successMessage =
+                    "Medical record created successfully!";
+
                 newRecord = new MedicalRecord();
+
                 await LoadData();
             }
             else
             {
-                errorMessage = "Failed to create medical record";
+                errorMessage =
+                    "Failed to create medical record";
             }
         }
         catch (Exception ex)
@@ -227,7 +562,16 @@
         string.IsNullOrWhiteSpace(searchText)
             ? records
             : records.Where(r =>
-                r.Title.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-                r.UserEmail.Contains(searchText, StringComparison.OrdinalIgnoreCase)
-            ).ToList();
-    }
+                    (r.Title?.Contains(
+                        searchText,
+                        StringComparison.OrdinalIgnoreCase
+                    ) ?? false)
+
+                    ||
+
+                    (r.UserEmail?.Contains(
+                        searchText,
+                        StringComparison.OrdinalIgnoreCase
+                    ) ?? false)
+              ).ToList();
+}

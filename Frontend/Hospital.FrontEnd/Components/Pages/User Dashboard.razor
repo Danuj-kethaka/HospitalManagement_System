@@ -299,7 +299,7 @@
                             <span>Your Medical Condition</span>
                         </div>
 
-                        <div class="card-body" style="max-height: 250px; overflow-y: auto;">
+                        <div class="card-body" style="max-height: 250px; min-height: 250px; overflow-y: auto;">
 
                             @if (isLoadingMedicalRecords)
                             {
@@ -438,11 +438,8 @@
                         <div class="card-header">
                             <span>Notification</span>
                         </div>
-                        <div class="card-body">
-                                <div class="mb-6 mt-3">
-                                    <input type="text" name="title" placeholder="you have no notification yet" id="title" required class="form-control" value="">
-                                    <div class="text-danger"></div>
-                                </div>
+                         <div class="card-body" style="max-height: 70px; overflow-y: auto;">
+                                <p class="text-muted text-center">You have no notification yet.</p>
                         </div>
                     </div>
                 </div>

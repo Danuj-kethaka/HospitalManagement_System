@@ -3,176 +3,686 @@
 @using Hospital.FrontEnd.Components.Layout
 @using Hospital.FrontEnd.Models
 @using Hospital.FrontEnd.Clients
+
 @inject LabResultClient labResultClient
 @inject AuthClient authClient
 @inject IJSRuntime JS
+
 @rendermode InteractiveServer
 
 <style>
-    .glass-card {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-        border: none;
+    .lab-page {
+        padding: 20px;
     }
 
-    .lab-item {
-        border: 1px solid #f1f1f1;
+    .page-title {
+        font-size: 30px;
+        font-weight: 700;
+        color: #111827;
+    }
+
+    .page-subtitle {
+        color: #6b7280;
+        font-size: 14px;
+    }
+
+    /* DASHBOARD CARDS */
+
+    .dashboard-card {
+        background: white;
+        border-radius: 18px;
+        padding: 22px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+        border: 1px solid #edf0f5;
+        transition: .25s;
+        height: 100%;
+    }
+
+        .dashboard-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+    .stats-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+    }
+
+    .icon-blue {
+        background: rgba(13,110,253,.12);
+        color: #0d6efd;
+    }
+
+    .icon-green {
+        background: rgba(25,135,84,.12);
+        color: #198754;
+    }
+
+    .icon-orange {
+        background: rgba(255,193,7,.18);
+        color: #f59e0b;
+    }
+
+    .icon-red {
+        background: rgba(220,53,69,.12);
+        color: #dc3545;
+    }
+
+    .stat-title {
+        font-size: 14px;
+        color: #6b7280;
+    }
+
+    .stat-value {
+        font-size: 28px;
+        font-weight: 700;
+        margin-top: 6px;
+        color: #111827;
+    }
+
+    /* SEARCH */
+
+    .top-bar {
+        background: white;
+        padding: 18px;
+        border-radius: 18px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+        margin-bottom: 20px;
+    }
+
+    .search-box {
         border-radius: 12px;
-        padding: 14px;
-        transition: 0.2s;
-        margin-bottom: 10px;
-        background: #fff;
+        border: 1px solid #e5e7eb;
+        height: 48px;
+        padding-left: 15px;
+        background: #f9fafb;
     }
 
-    .lab-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-    }
+        .search-box:focus {
+            box-shadow: none;
+            border-color: #0d6efd;
+            background: white;
+        }
 
-    .scroll-area {
-        max-height: 600px;
-        overflow-y: auto;
-    }
+    /* MAIN CARD */
 
-    .user-badge {
-        font-size: 12px;
-        padding: 5px 10px;
+    .main-card {
+        background: white;
         border-radius: 20px;
-        background: #212529;
-        color: white;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        border: 1px solid #edf0f5;
     }
 
-    .file-link {
-        text-decoration: none;
-        font-weight: 500;
+    .card-header-custom {
+        padding: 22px;
+        border-bottom: 1px solid #f1f3f7;
     }
+
+    .section-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #111827;
+    }
+
+    /* FORM */
+
+    .modern-input {
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+        min-height: 48px;
+        background: #f9fafb;
+    }
+
+        .modern-input:focus {
+            box-shadow: none;
+            border-color: #0d6efd;
+            background: white;
+        }
+
+    textarea.modern-input {
+        min-height: 120px;
+        padding-top: 12px;
+    }
+
+    .upload-box {
+    border: 2px dashed #dbe4f0;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    background: #f9fbff;
+    transition: .2s;
+    }
+
+    .upload-box:hover {
+        border-color: #0d6efd;
+        background: #f4f8ff;
+    }
+
+    .upload-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        background: rgba(13,110,253,.12);
+        color: #0d6efd;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        margin-bottom: 8px;
+    }
+
+    .primary-btn {
+        height: 50px;
+        border-radius: 12px;
+        border: none;
+        font-weight: 600;
+        background: linear-gradient(135deg,#0d6efd,#2563eb);
+        transition: .25s;
+    }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+        }
+
+    /* RESULT TABLE */
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    .modern-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 14px;
+    }
+
+        .modern-table thead th {
+            color: #6b7280;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            padding: 0 16px;
+        }
+
+        .modern-table tbody tr {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: .2s;
+        }
+
+            .modern-table tbody tr:hover {
+                transform: scale(1.01);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            }
+
+        .modern-table td {
+            padding: 18px 16px;
+            vertical-align: middle;
+            border-top: 1px solid #f1f3f7;
+            border-bottom: 1px solid #f1f3f7;
+        }
+
+            .modern-table td:first-child {
+                border-left: 1px solid #f1f3f7;
+                border-top-left-radius: 14px;
+                border-bottom-left-radius: 14px;
+            }
+
+            .modern-table td:last-child {
+                border-right: 1px solid #f1f3f7;
+                border-top-right-radius: 14px;
+                border-bottom-right-radius: 14px;
+            }
+
+    .lab-title {
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 4px;
+    }
+
+    .lab-date {
+        font-size: 13px;
+        color: #9ca3af;
+    }
+
+    .patient-badge {
+        background: #111827;
+        color: white;
+        border-radius: 30px;
+        padding: 7px 14px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .result-text {
+        color: #374151;
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 350px;
+    }
+
+    .file-btn {
+        background: rgba(13,110,253,.12);
+        color: #0d6efd;
+        border-radius: 10px;
+        padding: 8px 14px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: .2s;
+    }
+
+        .file-btn:hover {
+            background: #0d6efd;
+            color: white;
+        }
+
+    .empty-box {
+        padding: 80px 20px;
+        text-align: center;
+        color: #9ca3af;
+    }
+
+        .empty-box i {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+    .alert-modern {
+        border-radius: 14px;
+        border: none;
+        padding: 15px 18px;
+    }
+
 </style>
 
-<div class="container-fluid mt-3">
+<div class="lab-page">
 
-    <div class="row g-3">
+    <div class="row g-4 mb-4">
 
-        <!-- CREATE LAB RESULT -->
-        <div class="col-md-4">
+        <div class="col-md-3">
 
-            <div class="glass-card p-3">
+            <div class="dashboard-card">
 
-                <h5 class="mb-3">Create Lab Result</h5>
+                <div class="d-flex justify-content-between align-items-center">
 
-                <select class="form-control mb-2"
-                        @bind="selectedUserId">
+                    <div>
 
-                    <option value="">-- Select User --</option>
+                        <div class="stat-title">
+                            Total Results
+                        </div>
 
-                    @foreach (var u in users)
-                    {
-                        <option value="@u.Id">@u.Email</option>
-                    }
+                        <div class="stat-value">
+                            @labResults.Count
+                        </div>
 
-                </select>
-
-                <InputText class="form-control mb-2"
-                           placeholder="Title"
-                           @bind-Value="title" />
-
-                <InputTextArea class="form-control mb-2"
-                               placeholder="Result Text"
-                               @bind-Value="resultText" />
-
-                <InputFile OnChange="HandleFileChange"
-                           class="form-control mb-3" />
-
-                <button class="btn btn-primary w-100"
-                        @onclick="CreateLabResult"
-                        disabled="@isSaving">
-
-                    @(isSaving ? "Uploading..." : "Upload Result")
-
-                </button>
-
-                @if (!string.IsNullOrEmpty(message))
-                {
-                    <div class="alert alert-info mt-2">
-                        @message
                     </div>
-                }
+
+                    <div class="stats-icon icon-blue">
+                        <i class="fa fa-vials"></i>
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
 
-        <!-- LAB RESULT LIST -->
-        <div class="col-md-8">
+        <div class="col-md-3">
 
-            <div class="glass-card p-3">
+            <div class="dashboard-card">
 
-                <h5 class="mb-3">All Lab Results</h5>
+                <div class="d-flex justify-content-between align-items-center">
 
-                @if (isLoading)
-                {
-                    <p>Loading lab results...</p>
-                }
-                else if (labResults == null || !labResults.Any())
-                {
-                    <p class="text-muted text-center py-4">
-                        No lab results found
-                    </p>
-                }
-                else
-                {
-                    <div class="scroll-area">
+                    <div>
 
-                        @foreach (var item in labResults.OrderByDescending(x => x.CreatedAt))
-                        {
-                            <div class="lab-item">
+                        <div class="stat-title">
+                            Patients
+                        </div>
 
-                                <div class="d-flex justify-content-between">
-
-                                    <div>
-
-                                        <div class="fw-bold text-primary">
-                                            @item.Title
-                                        </div>
-
-                                        <small class="text-muted">
-                                            @item.CreatedAt.ToString("dd MMM yyyy hh:mm tt")
-                                        </small>
-
-                                        <p class="mb-1 mt-2">
-                                            @item.ResultText
-                                        </p>
-
-                                    </div>
-
-                                    <div class="text-end">
-
-                                        <span class="user-badge">
-                                            @item.UserEmail
-                                        </span>
-
-                                        @if (!string.IsNullOrEmpty(item.FilePath))
-                                        {
-                                            <div class="mt-2">
-                                                <a class="file-link"
-                                                   href="http://localhost:5253/@item.FilePath"
-                                                   target="_blank">
-
-                                                    View File
-
-                                                </a>
-                                            </div>
-                                        }
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        }
+                        <div class="stat-value">
+                            @users.Count
+                        </div>
 
                     </div>
-                }
+
+                    <div class="stats-icon icon-green">
+                        <i class="fa fa-users"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="dashboard-card">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <div class="stat-title">
+                            Files Uploaded
+                        </div>
+
+                        <div class="stat-value">
+                            @labResults.Count(x => !string.IsNullOrEmpty(x.FilePath))
+                        </div>
+
+                    </div>
+
+                    <div class="stats-icon icon-orange">
+                        <i class="fa fa-file-medical"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="dashboard-card">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <div class="stat-title">
+                            Today's Reports
+                        </div>
+
+                        <div class="stat-value">
+                            @labResults.Count(x => x.CreatedAt.Date == DateTime.Today)
+                        </div>
+
+                    </div>
+
+                    <div class="stats-icon icon-red">
+                        <i class="fa fa-chart-line"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SEARCH -->
+
+    <div class="top-bar">
+
+        <input class="form-control search-box"
+               placeholder="Search reports, patients..."
+               @bind="searchText"
+               @bind:event="oninput" />
+
+    </div>
+
+    <div class="row g-4">
+
+        <!-- CREATE RESULT -->
+
+        <div class="col-lg-4">
+
+            <div class="main-card">
+
+                <div class="card-header-custom">
+
+                    <div class="section-title">
+                        Upload Lab Result
+                    </div>
+
+                </div>
+
+                <div class="p-4">
+
+                    <div class="mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Select Patient
+                        </label>
+
+                        <select class="form-control modern-input"
+                                @bind="selectedUserId">
+
+                            <option value="">
+                                -- Select User --
+                            </option>
+
+                            @foreach (var u in users)
+                            {
+                                <option value="@u.Id">
+                                    @u.Email
+                                </option>
+                            }
+
+                        </select>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Lab Test Title
+                        </label>
+
+                        <InputText class="form-control modern-input"
+                                   placeholder="Enter title"
+                                   @bind-Value="title" />
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label fw-semibold">
+                            Result Details
+                        </label>
+
+                        <InputTextArea class="form-control modern-input"
+                                       placeholder="Write result details..."
+                                       @bind-Value="resultText" />
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold mb-2">
+                            Upload File
+                        </label>
+
+                        <div class="upload-box">
+
+                            <div class="upload-icon">
+                                <i class="fa fa-cloud-arrow-up"></i>
+                            </div>
+
+                            <div class="small text-muted mb-2">
+                                PDF / Images
+                            </div>
+
+                            <InputFile OnChange="HandleFileChange" class="form-control form-control-sm" />
+                           </div>
+
+                    </div>
+
+                    <button class="btn btn-primary primary-btn w-100"
+                            @onclick="CreateLabResult"
+                            disabled="@isSaving">
+
+                        @(isSaving ? "Uploading..." : "Upload Result")
+
+                    </button>
+
+                    @if (!string.IsNullOrEmpty(message))
+                    {
+                        <div class="alert alert-info alert-modern mt-3">
+                            @message
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- LAB RESULTS -->
+
+        <div class="col-lg-8">
+
+            <div class="main-card">
+
+                <div class="card-header-custom d-flex justify-content-between align-items-center">
+
+                    <div class="section-title">
+                        All Laboratory Results
+                    </div>
+
+                    <div class="text-muted small">
+                        @FilteredResults.Count Results Found
+                    </div>
+
+                </div>
+
+                <div class="p-4">
+
+                    @if (isLoading)
+                    {
+                        <div class="text-center py-5">
+
+                            <div class="spinner-border text-primary"></div>
+
+                            <div class="mt-3 text-muted">
+                                Loading laboratory results...
+                            </div>
+
+                        </div>
+                    }
+                    else if (FilteredResults == null || !FilteredResults.Any())
+                    {
+                        <div class="empty-box">
+
+                            <i class="fa fa-vials"></i>
+
+                            <h5>No Laboratory Results</h5>
+
+                            <p>
+                                Uploaded reports will appear here
+                            </p>
+
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="table-wrapper">
+
+                            <table class="modern-table">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>Report</th>
+                                        <th>Patient</th>
+                                        <th>Result</th>
+                                        <th>File</th>
+                                        <th>Date</th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    @foreach (var item in FilteredResults.OrderByDescending(x => x.CreatedAt))
+                                    {
+                                        <tr>
+
+                                            <td>
+
+                                                <div class="lab-title">
+                                                    @item.Title
+                                                </div>
+
+                                                <div class="lab-date">
+                                                    Laboratory Report
+                                                </div>
+
+                                            </td>
+
+                                            <td>
+
+                                                <span class="patient-badge">
+                                                    @item.UserEmail
+                                                </span>
+
+                                            </td>
+
+                                            <td>
+
+                                                <div class="result-text">
+                                                    @item.ResultText
+                                                </div>
+
+                                            </td>
+
+                                            <td>
+
+                                                @if (!string.IsNullOrEmpty(item.FilePath))
+                                                {
+                                                    <a class="file-btn"
+                                                       href="http://localhost:5253/@item.FilePath"
+                                                       target="_blank">
+
+                                                        View File
+
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted small">
+                                                        No File
+                                                    </span>
+                                                }
+
+                                            </td>
+
+                                            <td>
+
+                                                <div class="lab-date">
+                                                    @item.CreatedAt.ToString("dd MMM yyyy")
+                                                </div>
+
+                                                <div class="lab-date">
+                                                    @item.CreatedAt.ToString("hh:mm tt")
+                                                </div>
+
+                                            </td>
+
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    }
+
+                </div>
 
             </div>
 
@@ -185,15 +695,21 @@
 @code {
 
     private List<UserDetails> users = new();
+
     private List<LabResult> labResults = new();
 
     private string selectedUserId = "";
+
     private string title = "";
+
     private string resultText = "";
+
+    private string searchText = "";
 
     private IBrowserFile? selectedFile;
 
     private bool isLoading = true;
+
     private bool isSaving = false;
 
     private string? message;
@@ -203,22 +719,29 @@
         if (firstRender)
         {
             await LoadData();
+
             StateHasChanged();
         }
     }
 
     private async Task LoadData()
     {
-        var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
+        var token = await JS.InvokeAsync<string>(
+            "localStorage.getItem",
+            "token");
 
-        users = await authClient.GetAllUsers(token);
+        users =
+            await authClient.GetAllUsers(token);
 
-        labResults = await labResultClient.GetAllLabResultsAsync(token) ?? new();
+        labResults =
+            await labResultClient.GetAllLabResultsAsync(token)
+            ?? new();
 
         isLoading = false;
     }
 
-    private void HandleFileChange(InputFileChangeEventArgs e)
+    private void HandleFileChange(
+        InputFileChangeEventArgs e)
     {
         selectedFile = e.File;
     }
@@ -226,35 +749,45 @@
     private async Task CreateLabResult()
     {
         isSaving = true;
+
         message = null;
 
         try
         {
-            var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
+            var token = await JS.InvokeAsync<string>(
+                "localStorage.getItem",
+                "token");
 
-            var response = await labResultClient.CreateLabResultAsync(
-                token,
-                selectedUserId,
-                title,
-                resultText,
-                selectedFile);
+            var response =
+                await labResultClient.CreateLabResultAsync(
+                    token,
+                    selectedUserId,
+                    title,
+                    resultText,
+                    selectedFile);
 
             if (response.IsSuccessStatusCode)
             {
-                message = "Lab result uploaded successfully";
+                message =
+                    "Lab result uploaded successfully";
 
                 selectedUserId = "";
+
                 title = "";
+
                 resultText = "";
+
                 selectedFile = null;
 
                 labResults =
-                    await labResultClient.GetAllLabResultsAsync(token)
+                    await labResultClient
+                    .GetAllLabResultsAsync(token)
                     ?? new();
             }
             else
             {
-                message = "Failed to upload lab result";
+                message =
+                    "Failed to upload lab result";
             }
         }
         catch (Exception ex)
@@ -264,4 +797,21 @@
 
         isSaving = false;
     }
+
+    private List<LabResult> FilteredResults =>
+        string.IsNullOrWhiteSpace(searchText)
+            ? labResults
+            : labResults.Where(x =>
+                x.Title.Contains(
+                    searchText,
+                    StringComparison.OrdinalIgnoreCase)
+                ||
+                x.UserEmail.Contains(
+                    searchText,
+                    StringComparison.OrdinalIgnoreCase)
+                ||
+                x.ResultText.Contains(
+                    searchText,
+                    StringComparison.OrdinalIgnoreCase))
+            .ToList();
 }

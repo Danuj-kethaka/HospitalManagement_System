@@ -10,157 +10,592 @@
 @rendermode InteractiveServer
 
 <style>
-    .custom-table {
-        border-radius: 12px;
-        overflow: hidden;
-        background: white;
-    }
-
-    .custom-table thead {
-        background: linear-gradient(90deg, #1e3c72, #2a5298);
-        color: white;
-        font-weight: 500;
-    }
-
-    .custom-table th {
-        border: none;
-        padding: 14px;
-        font-size: 14px;
-        letter-spacing: 0.5px;
-    }
-
-    .custom-table td {
-        padding: 14px;
-        vertical-align: middle;
-        border-top: 1px solid #f1f1f1;
-    }
-
-    .custom-table tbody tr {
-        transition: all 0.2s ease;
-    }
-
-    .custom-table tbody tr:hover {
-        background-color: #f8f9fa;
-        transform: scale(1.002);
-    }
-
-    .badge-custom {
-        padding: 6px 10px;
-        border-radius: 20px;
-        font-size: 12px;
-    }
-
-    .btn-action {
-        border-radius: 20px;
-        padding: 5px 12px;
-        font-size: 12px;
-    }
-
-    .table-card {
-        border-radius: 16px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    .appointments-page {
         padding: 20px;
-        background: #fff;
     }
+
+    .page-title {
+        font-size: 30px;
+        font-weight: 700;
+        color: #111827;
+    }
+
+    .page-subtitle {
+        color: #6b7280;
+        font-size: 14px;
+    }
+
+    .dashboard-card {
+        background: white;
+        border-radius: 18px;
+        padding: 22px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+        border: 1px solid #edf0f5;
+        transition: .25s;
+        height: 100%;
+    }
+
+        .dashboard-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+    .stats-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+    }
+
+    .icon-blue {
+        background: rgba(13,110,253,.12);
+        color: #0d6efd;
+    }
+
+    .icon-green {
+        background: rgba(25,135,84,.12);
+        color: #198754;
+    }
+
+    .icon-orange {
+        background: rgba(255,193,7,.18);
+        color: #f59e0b;
+    }
+
+    .icon-red {
+        background: rgba(220,53,69,.12);
+        color: #dc3545;
+    }
+
+    .stat-title {
+        font-size: 14px;
+        color: #6b7280;
+    }
+
+    .stat-value {
+        font-size: 28px;
+        font-weight: 700;
+        margin-top: 6px;
+        color: #111827;
+    }
+
+    .top-bar {
+        background: white;
+        padding: 18px;
+        border-radius: 18px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+        margin-bottom: 20px;
+    }
+
+    .search-box {
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+        height: 50px;
+        padding-left: 15px;
+        background: #f9fafb;
+    }
+
+        .search-box:focus {
+            box-shadow: none;
+            border-color: #0d6efd;
+            background: white;
+        }
+
+    .main-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        border: 1px solid #edf0f5;
+    }
+
+    .card-header-custom {
+        padding: 22px;
+        border-bottom: 1px solid #f1f3f7;
+    }
+
+    .section-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #111827;
+    }
+
+    .appointments-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 14px;
+    }
+
+        .appointments-table thead th {
+            border: none;
+            color: #6b7280;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 0 16px;
+        }
+
+        .appointments-table tbody tr {
+            background: white;
+            transition: .25s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+            .appointments-table tbody tr:hover {
+                transform: scale(1.01);
+                box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+            }
+
+        .appointments-table td {
+            padding: 18px 16px;
+            vertical-align: middle;
+            border-top: 1px solid #edf0f5;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+            .appointments-table td:first-child {
+                border-left: 1px solid #edf0f5;
+                border-top-left-radius: 14px;
+                border-bottom-left-radius: 14px;
+            }
+
+            .appointments-table td:last-child {
+                border-right: 1px solid #edf0f5;
+                border-top-right-radius: 14px;
+                border-bottom-right-radius: 14px;
+            }
+
+    .patient-name {
+        font-weight: 700;
+        color: #111827;
+    }
+
+    .small-text {
+        font-size: 13px;
+        color: #9ca3af;
+    }
+
+    .doctor-name {
+        font-weight: 600;
+        color: #1e293b;
+    }
+
+    .department-badge {
+        background: rgba(13,110,253,.12);
+        color: #0d6efd;
+        padding: 8px 14px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .status-badge {
+        padding: 8px 14px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .status-pending {
+        background: rgba(255,193,7,.18);
+        color: #b58105;
+    }
+
+    .status-accepted {
+        background: rgba(25,135,84,.15);
+        color: #198754;
+    }
+
+    .status-rejected {
+        background: rgba(220,53,69,.12);
+        color: #dc3545;
+    }
+
+    .status-default {
+        background: #eef2f7;
+        color: #6b7280;
+    }
+
+    .btn-modern {
+        border-radius: 12px;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 8px 16px;
+        border: none;
+        transition: .2s;
+    }
+
+        .btn-modern:hover {
+            transform: translateY(-2px);
+        }
+
+    .btn-accept {
+        background: linear-gradient(135deg,#16a34a,#22c55e);
+        color: white;
+    }
+
+    .btn-reject {
+        background: linear-gradient(135deg,#dc2626,#ef4444);
+        color: white;
+    }
+
+    .empty-box {
+        padding: 90px 20px;
+        text-align: center;
+        color: #9ca3af;
+    }
+
+        .empty-box i {
+            font-size: 60px;
+            margin-bottom: 18px;
+        }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
 </style>
 
-<div class="container-fluid mt-2">
-    <div class="d-flex justify-content-center align-items-center mb-4">
-        <h2 class="fw-bold">
-           All Appointments
-        </h2>
+<div class="appointments-page">
+    <div class="row g-4 mb-4">
+
+        <div class="col-md-3">
+
+            <div class="dashboard-card">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <div class="stat-title">
+                            Total Appointments
+                        </div>
+
+                        <div class="stat-value">
+                            @(allAppointments?.Count ?? 0)
+                        </div>
+
+                    </div>
+
+                    <div class="stats-icon icon-blue">
+                        <i class="fa fa-calendar-check"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="dashboard-card">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <div class="stat-title">
+                            Pending
+                        </div>
+
+                        <div class="stat-value">
+                            @(allAppointments?.Count(x => x.Status == "Pending") ?? 0)
+                        </div>
+
+                    </div>
+
+                    <div class="stats-icon icon-orange">
+                        <i class="fa fa-clock"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="dashboard-card">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <div class="stat-title">
+                            Accepted
+                        </div>
+
+                        <div class="stat-value">
+                            @(allAppointments?.Count(x => x.Status == "Accepted") ?? 0)
+                        </div>
+
+                    </div>
+
+                    <div class="stats-icon icon-green">
+                        <i class="fa fa-circle-check"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="dashboard-card">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <div class="stat-title">
+                            Rejected
+                        </div>
+
+                        <div class="stat-value">
+                            @(allAppointments?.Count(x => x.Status == "Rejected") ?? 0)
+                        </div>
+
+                    </div>
+
+                    <div class="stats-icon icon-red">
+                        <i class="fa fa-circle-xmark"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    @if (isLoading)
-    {
-        <div class="text-center py-5">
-            <p class="lead">Loading appointments...</p>
-        </div>
-    }
-    else if (allAppointments == null || !allAppointments.Any())
-    {
-        <div class="alert alert-info">No appointments found.</div>
-    }
-    else
-    {
-        <div class="table-card">
-            <div class="table-responsive">
-                <table class="table custom-table align-middle">
-                    <thead>
-                        <tr>
-                            <th>#ID</th>
-                            <th>Patient</th>
-                            <th>Doctor</th>
-                            <th>Department</th>
-                            <th>Date & Time</th>
-                            <th>Status</th>
-                            <th class="text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var apt in allAppointments.OrderByDescending(a => a.DateTime))
-                        {
-                            <tr>
-                                <td class="fw-semibold text-muted">#@apt.Id</td>
-                                <td>
-                                    <div class="fw-semibold">@apt.UserEmail</div>
-                                </td>
-                                <td>@apt.DoctoreName</td>
-                                <td>
-                                    <span class="text-primary fw-medium">@apt.DepartmentName</span>
-                                </td>
-                                <td>
-                                    <div>@apt.DateTime.ToString("dd MMM yyyy")</div>
-                                    <small class="text-muted">@apt.DateTime.ToString("hh:mm tt")</small>
-                                </td>
-                                <td>
-                                    @if (apt.Status == "Pending")
-                                    {
-                                        <span class="badge bg-warning text-dark badge-custom">Pending</span>
-                                    }
-                                    else if (apt.Status == "Accepted")
-                                    {
-                                        <span class="badge bg-success badge-custom">Accepted</span>
-                                    }
-                                    else if (apt.Status == "Rejected")
-                                    {
-                                        <span class="badge bg-danger badge-custom">Rejected</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="badge bg-secondary badge-custom">@apt.Status</span>
-                                    }
-                                </td>
-                                <td class="text-center">
-                                    @if (apt.Status == "Pending")
-                                    {
-                                        <button class="btn btn-success btn-sm btn-action me-2"
-                                                @onclick="() => AcceptAppointment(apt.Id)">
-                                            <i class="fa fa-check me-1"></i>Accept
-                                        </button>
+    <!-- SEARCH -->
 
-                                        <button class="btn btn-danger btn-sm btn-action"
-                                                @onclick="() => RejectAppointment(apt.Id)">
-                                            <i class="fa fa-times me-1"></i>Reject
-                                        </button>
-                                    }
-                                    else
-                                    {
-                                        <span class="text-muted">—</span>
-                                    }
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+    <div class="top-bar">
+
+        <input class="form-control search-box"
+               placeholder="Search patient, doctor, department, status..."
+               @bind="searchText"
+               @bind:event="oninput" />
+
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="main-card">
+
+        <div class="card-header-custom d-flex justify-content-between align-items-center">
+
+            <div class="section-title">
+                All Appointments
             </div>
+
+            <div class="small-text">
+                @(FilteredAppointments.Count) appointments found
+            </div>
+
         </div>
-    }
+
+        <div class="p-4">
+
+            @if (isLoading)
+            {
+                <div class="text-center py-5">
+
+                    <div class="spinner-border text-primary"></div>
+
+                    <div class="mt-3 text-muted">
+                        Loading appointments...
+                    </div>
+
+                </div>
+            }
+            else if (FilteredAppointments == null || !FilteredAppointments.Any())
+            {
+                <div class="empty-box">
+
+                    <i class="fa fa-calendar-xmark"></i>
+
+                    <h4>
+                        No Appointments Found
+                    </h4>
+
+                    <p>
+                        There are currently no appointments available.
+                    </p>
+
+                </div>
+            }
+            else
+            {
+                <div class="table-wrapper">
+
+                    <table class="appointments-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Appointment</th>
+                                <th>Patient</th>
+                                <th>Doctor</th>
+                                <th>Department</th>
+                                <th>Date & Time</th>
+                                <th>Status</th>
+                                <th class="text-center">Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var apt in FilteredAppointments.OrderByDescending(a => a.DateTime))
+                            {
+                                <tr>
+
+                                    <td>
+
+                                        <div class="patient-name">
+                                            #APT-@apt.Id
+                                        </div>
+
+                                        <div class="small-text">
+                                            Appointment ID
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        <div class="patient-name">
+                                            @apt.UserEmail
+                                        </div>
+
+                                        <div class="small-text">
+                                            Patient Account
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        <div class="doctor-name">
+                                            Dr. @apt.DoctoreName
+                                        </div>
+
+                                        <div class="small-text">
+                                            Assigned Doctor
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        <span class="department-badge">
+                                            @apt.DepartmentName
+                                        </span>
+
+                                    </td>
+
+                                    <td>
+
+                                        <div class="patient-name">
+                                            @apt.DateTime.ToString("dd MMM yyyy")
+                                        </div>
+
+                                        <div class="small-text">
+                                            @apt.DateTime.ToString("hh:mm tt")
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+
+                                        @if (apt.Status == "Pending")
+                                        {
+                                            <span class="status-badge status-pending">
+                                                Pending
+                                            </span>
+                                        }
+                                        else if (apt.Status == "Accepted")
+                                        {
+                                            <span class="status-badge status-accepted">
+                                                Accepted
+                                            </span>
+                                        }
+                                        else if (apt.Status == "Rejected")
+                                        {
+                                            <span class="status-badge status-rejected">
+                                                Rejected
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="status-badge status-default">
+                                                @apt.Status
+                                            </span>
+                                        }
+
+                                    </td>
+
+                                    <td class="text-center">
+
+                                        @if (apt.Status == "Pending")
+                                        {
+                                            <button class="btn btn-modern btn-accept me-2"
+                                                    @onclick="() => AcceptAppointment(apt.Id)">
+
+                                                <i class="fa fa-check me-1"></i>
+                                                Accept
+
+                                            </button>
+
+                                            <button class="btn btn-modern btn-reject"
+                                                    @onclick="() => RejectAppointment(apt.Id)">
+
+                                                <i class="fa fa-times me-1"></i>
+                                                Reject
+
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <span class="small-text">
+                                                Completed Action
+                                            </span>
+                                        }
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
 </div>
 
 @code {
+
     private List<Appointment>? allAppointments;
+
     private bool isLoading = true;
+
+    private string searchText = "";
 
     private Task AcceptAppointment(int id)
     {
@@ -183,11 +618,14 @@
     private async Task LoadAllAppointments()
     {
         isLoading = true;
+
         StateHasChanged();
 
         try
         {
-            var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
+            var token = await JS.InvokeAsync<string>(
+                "localStorage.getItem",
+                "token");
 
             if (string.IsNullOrWhiteSpace(token))
             {
@@ -195,25 +633,38 @@
                 return;
             }
 
-            allAppointments = await appointmentClient.GetAllAppointmentsAsync(token);
+            allAppointments =
+                await appointmentClient.GetAllAppointmentsAsync(token);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error loading appointments: {ex.Message}");
+            Console.WriteLine(
+                $"Error loading appointments: {ex.Message}");
         }
         finally
         {
             isLoading = false;
+
             StateHasChanged();
         }
     }
 
-    private async Task UpdateStatus(int appointmentId, string newStatus)
+    private async Task UpdateStatus(
+        int appointmentId,
+        string newStatus)
     {
         try
         {
-            var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
-            var response = await appointmentClient.UpdateAppointmentStatusAsync(appointmentId, newStatus, token);
+            var token = await JS.InvokeAsync<string>(
+                "localStorage.getItem",
+                "token");
+
+            var response =
+                await appointmentClient
+                .UpdateAppointmentStatusAsync(
+                    appointmentId,
+                    newStatus,
+                    token);
 
             if (response.IsSuccessStatusCode)
             {
@@ -221,12 +672,36 @@
             }
             else
             {
-                Console.WriteLine("Failed to update appointment status.");
+                Console.WriteLine(
+                    "Failed to update appointment status.");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error updating status: {ex.Message}");
+            Console.WriteLine(
+                $"Error updating status: {ex.Message}");
         }
     }
+
+    private List<Appointment> FilteredAppointments =>
+        string.IsNullOrWhiteSpace(searchText)
+            ? allAppointments ?? new()
+            : (allAppointments ?? new())
+            .Where(a =>
+                a.UserEmail.Contains(
+                    searchText,
+                    StringComparison.OrdinalIgnoreCase)
+                ||
+                a.DoctoreName.Contains(
+                    searchText,
+                    StringComparison.OrdinalIgnoreCase)
+                ||
+                a.DepartmentName.Contains(
+                    searchText,
+                    StringComparison.OrdinalIgnoreCase)
+                ||
+                a.Status.Contains(
+                    searchText,
+                    StringComparison.OrdinalIgnoreCase))
+            .ToList();
 }

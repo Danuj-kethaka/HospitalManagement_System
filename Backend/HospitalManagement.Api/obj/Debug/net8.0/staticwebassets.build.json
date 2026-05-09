@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vS1Nmjw6xbO0/C9pKC6vd+hKkxa5RrKJylTx/TXcX3g=",
+  "Hash": "cnd8vLwoAWSzhETs7LWJ4z2ctNm5oR2U4Hr1WgC5utU=",
   "Source": "HospitalManagement.Api",
   "BasePath": "_content/HospitalManagement.Api",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "HospitalManagement.Api\\wwwroot",
       "Source": "HospitalManagement.Api",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\bACKEND\\hospitalmanagement.api\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\backend\\hospitalmanagement.api\\wwwroot\\",
       "BasePath": "_content/HospitalManagement.Api",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\bACKEND\\hospitalmanagement.api\\wwwroot\\uploads\\labresults\\a91e9e93-bb6a-4479-b6fa-5800b94e7b72.pdf",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\backend\\hospitalmanagement.api\\wwwroot\\uploads\\labresults\\a91e9e93-bb6a-4479-b6fa-5800b94e7b72.pdf",
       "SourceId": "HospitalManagement.Api",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\bACKEND\\hospitalmanagement.api\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\backend\\hospitalmanagement.api\\wwwroot\\",
       "BasePath": "_content/HospitalManagement.Api",
       "RelativePath": "uploads/labresults/a91e9e93-bb6a-4479-b6fa-5800b94e7b72.pdf",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\labresults\\a91e9e93-bb6a-4479-b6fa-5800b94e7b72.pdf"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\bACKEND\\hospitalmanagement.api\\wwwroot\\uploads\\labresults\\ad421ac2-1c24-4e75-b54e-c1803bff2fc6.docx",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\backend\\hospitalmanagement.api\\wwwroot\\uploads\\labresults\\ad421ac2-1c24-4e75-b54e-c1803bff2fc6.docx",
       "SourceId": "HospitalManagement.Api",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\bACKEND\\hospitalmanagement.api\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\backend\\hospitalmanagement.api\\wwwroot\\",
       "BasePath": "_content/HospitalManagement.Api",
       "RelativePath": "uploads/labresults/ad421ac2-1c24-4e75-b54e-c1803bff2fc6.docx",
       "AssetKind": "All",

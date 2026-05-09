@@ -11,196 +11,647 @@
 @rendermode InteractiveServer
 
 <style>
-    .glass-card {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-        border: none;
+    .billing-page {
+        padding: 20px;
     }
 
-    .bill-item {
-        border: 1px solid #f1f1f1;
+    .page-title {
+        font-size: 30px;
+        font-weight: 700;
+        color: #111827;
+    }
+
+    .page-subtitle {
+        color: #6b7280;
+        font-size: 14px;
+    }
+
+    .dashboard-card {
+        background: white;
+        border-radius: 18px;
+        padding: 22px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+        border: 1px solid #edf0f5;
+        transition: .25s;
+        height: 100%;
+    }
+
+        .dashboard-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+    .stats-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+    }
+
+    .icon-blue {
+        background: rgba(13,110,253,.12);
+        color: #0d6efd;
+    }
+
+    .icon-green {
+        background: rgba(25,135,84,.12);
+        color: #198754;
+    }
+
+    .icon-orange {
+        background: rgba(255,193,7,.18);
+        color: #f59e0b;
+    }
+
+    .icon-red {
+        background: rgba(220,53,69,.12);
+        color: #dc3545;
+    }
+
+    .stat-title {
+        font-size: 14px;
+        color: #6b7280;
+    }
+
+    .stat-value {
+        font-size: 28px;
+        font-weight: 700;
+        margin-top: 6px;
+        color: #111827;
+    }
+
+    .top-bar {
+        background: white;
+        padding: 18px;
+        border-radius: 18px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+        margin-bottom: 20px;
+    }
+
+    .search-box {
         border-radius: 12px;
-        padding: 14px;
-        transition: 0.2s;
-        margin-bottom: 10px;
-        background: #fff;
+        border: 1px solid #e5e7eb;
+        height: 48px;
+        padding-left: 15px;
+        background: #f9fafb;
     }
 
-    .bill-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(239, 241, 240, 0.08);
-    }
-
-    .badge-user {
-        font-size: 12px;
-        padding: 5px 10px;
+    .main-card {
+        background: white;
         border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        border: 1px solid #edf0f5;
     }
 
-    .scroll-area {
-        max-height: 600px;
-        overflow-y: auto;
+    .card-header-custom {
+        padding: 22px;
+        border-bottom: 1px solid #f1f3f7;
+    }
+
+    .section-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #111827;
+    }
+
+    .modern-input {
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+        min-height: 48px;
+        background: #f9fafb;
+    }
+
+        .modern-input:focus {
+            box-shadow: none;
+            border-color: #0d6efd;
+            background: white;
+        }
+
+    .primary-btn {
+        height: 50px;
+        border-radius: 12px;
+        border: none;
+        font-weight: 600;
+        background: linear-gradient(135deg,#0d6efd,#2563eb);
+        transition: .25s;
+    }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+        }
+
+    .bill-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .modern-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 14px;
+    }
+
+        .modern-table thead th {
+            color: #6b7280;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            padding: 0 16px;
+        }
+
+        .modern-table tbody tr {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: .2s;
+        }
+
+            .modern-table tbody tr:hover {
+                transform: scale(1.01);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            }
+
+        .modern-table td {
+            padding: 18px 16px;
+            vertical-align: middle;
+            border-top: 1px solid #f1f3f7;
+            border-bottom: 1px solid #f1f3f7;
+        }
+
+            .modern-table td:first-child {
+                border-left: 1px solid #f1f3f7;
+                border-top-left-radius: 14px;
+                border-bottom-left-radius: 14px;
+            }
+
+            .modern-table td:last-child {
+                border-right: 1px solid #f1f3f7;
+                border-top-right-radius: 14px;
+                border-bottom-right-radius: 14px;
+            }
+
+    .bill-title {
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 3px;
+    }
+
+    .bill-date {
+        font-size: 13px;
+        color: #9ca3af;
     }
 
     .amount-text {
-        font-size: 18px;
-        font-weight: bold;
-        color: #0d6efd;
+        font-size: 20px;
+        font-weight: 700;
+        color: #2563eb;
     }
+
+    .status-badge {
+        padding: 8px 14px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .status-paid {
+        background: rgba(25,135,84,.15);
+        color: #198754;
+    }
+
+    .status-pending {
+        background: rgba(255,193,7,.18);
+        color: #b58105;
+    }
+
+    .user-badge {
+        background: #111827;
+        color: white;
+        border-radius: 30px;
+        padding: 7px 14px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .empty-box {
+        padding: 80px 20px;
+        text-align: center;
+        color: #9ca3af;
+    }
+
+    .empty-box i {
+        font-size: 60px;
+        margin-bottom: 15px;
+    }
+
+    .alert-modern {
+        border-radius: 14px;
+        border: none;
+        padding: 15px 18px;
+    }
+
+    .quick-summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .summary-text {
+        font-size: 14px;
+        color: #6b7280;
+    }
+
+    .summary-value {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
 </style>
 
-<div class="container-fluid mt-3">
+<div class="billing-page">
 
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <input class="form-control w-100"
-               placeholder="Search bills..."
-               @bind="searchText"
-               @bind:event="oninput" />
-    </div>
+    <div class="row g-4 mb-4">
 
-    @if (!string.IsNullOrEmpty(successMessage))
-    {
-        <div class="alert alert-success">@successMessage</div>
-    }
+        <div class="col-md-3">
 
-    @if (!string.IsNullOrEmpty(errorMessage))
-    {
-        <div class="alert alert-danger">@errorMessage</div>
-    }
+            <div class="dashboard-card">
 
-    <div class="row g-3">
+                <div class="quick-summary">
 
-        <!-- CREATE BILL -->
-        <div class="col-md-4">
+                    <div>
 
-            <div class="glass-card p-3">
+                        <div class="stat-title">
+                            Total Bills
+                        </div>
 
-                <h5 class="mb-3">Create Bill</h5>
+                        <div class="stat-value">
+                            @bills.Count
+                        </div>
 
-                <EditForm Model="newBill" OnValidSubmit="CreateBill">
+                    </div>
 
-                    <DataAnnotationsValidator />
+                    <div class="stats-icon icon-blue">
+                        <i class="fa fa-file-invoice"></i>
+                    </div>
 
-                    <select class="form-control mb-3"
-                            @bind="newBill.UserId">
-
-                        <option value="">-- Select User --</option>
-
-                        @foreach (var u in FilteredUsers)
-                        {
-                            <option value="@u.Id">
-                                @u.Email
-                            </option>
-                        }
-
-                    </select>
-
-                    <InputText class="form-control mb-2"
-                               placeholder="Bill Title"
-                               @bind-Value="newBill.Title" />
-
-                    <InputNumber class="form-control mb-2"
-                                 placeholder="Amount"
-                                 @bind-Value="newBill.Amount" />
-
-                    <InputSelect class="form-control mb-3"
-                                 @bind-Value="newBill.Status">
-
-                        <option value="Pending">Pending</option>
-                        <option value="Paid">Paid</option>
-
-                    </InputSelect>
-
-                    <button class="btn btn-primary w-100"
-                            disabled="@isSaving">
-
-                        @(isSaving ? "Saving..." : "Create Bill")
-
-                    </button>
-
-                </EditForm>
+                </div>
 
             </div>
 
         </div>
 
-        <!-- BILL LIST -->
-        <div class="col-md-8">
+        <div class="col-md-3">
 
-            <div class="glass-card p-3">
+            <div class="dashboard-card">
 
-                <h5 class="mb-3">All Bills</h5>
+                <div class="quick-summary">
 
-                @if (isLoading)
-                {
-                    <p>Loading bills...</p>
-                }
-                else if (FilteredBills.Count == 0)
-                {
-                    <div class="text-center text-muted py-5">
-                        <i class="fa fa-credit-card fa-2x"></i>
-                        <p class="mt-2">No bills found</p>
-                    </div>
-                }
-                else
-                {
-                    <div class="scroll-area">
+                    <div>
 
-                        @foreach (var b in FilteredBills.OrderByDescending(x => x.CreatedAt))
-                        {
-                            <div class="bill-item">
+                        <div class="stat-title">
+                            Paid Bills
+                        </div>
 
-                                <div class="d-flex justify-content-between">
-
-                                    <div>
-
-                                        <div class="fw-bold text-primary">
-                                            @b.Title
-                                        </div>
-
-                                        <small class="text-muted">
-                                            @b.CreatedAt.ToString("dd MMM yyyy hh:mm tt")
-                                        </small>
-
-                                        <div class="mt-2 amount-text">
-                                            Rs. @b.Amount
-                                        </div>
-
-                                    </div>
-
-                                    <div class="text-end">
-
-                                        <span class="badge bg-dark badge-user">
-                                            @b.UserEmail
-                                        </span>
-
-                                        <div class="mt-2">
-
-                                            @if (b.Status == "Paid")
-                                            {
-                                                <span class="badge bg-success">
-                                                    Paid
-                                                </span>
-                                            }
-                                            else
-                                            {
-                                                <span class="badge bg-warning text-dark">
-                                                    Pending
-                                                </span>
-                                            }
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        }
+                        <div class="stat-value">
+                            @bills.Count(x => x.Status == "Paid")
+                        </div>
 
                     </div>
-                }
+
+                    <div class="stats-icon icon-green">
+                        <i class="fa fa-circle-check"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="dashboard-card">
+
+                <div class="quick-summary">
+
+                    <div>
+
+                        <div class="stat-title">
+                            Pending Bills
+                        </div>
+
+                        <div class="stat-value">
+                            @bills.Count(x => x.Status != "Paid")
+                        </div>
+
+                    </div>
+
+                    <div class="stats-icon icon-orange">
+                        <i class="fa fa-clock"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="dashboard-card">
+
+                <div class="quick-summary">
+
+                    <div>
+
+                        <div class="stat-title">
+                            Revenue
+                        </div>
+
+                        <div class="stat-value">
+                            Rs. @bills.Sum(x => x.Amount)
+                        </div>
+
+                    </div>
+
+                    <div class="stats-icon icon-red">
+                        <i class="fa fa-sack-dollar"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SEARCH -->
+
+    <div class="top-bar">
+
+        <input class="form-control search-box"
+               placeholder="Search bills, users, status..."
+               @bind="searchText"
+               @bind:event="oninput" />
+
+    </div>
+
+    @if (!string.IsNullOrEmpty(successMessage))
+    {
+        <div class="alert alert-success alert-modern mb-4">
+            @successMessage
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger alert-modern mb-4">
+            @errorMessage
+        </div>
+    }
+
+    <div class="row g-4">
+
+        <!-- CREATE BILL -->
+
+        <div class="col-lg-4">
+
+            <div class="main-card">
+
+                <div class="card-header-custom">
+
+                    <div class="section-title">
+                        Create New Bill
+                    </div>
+
+                </div>
+
+                <div class="p-4">
+
+                    <EditForm Model="newBill" OnValidSubmit="CreateBill">
+
+                        <DataAnnotationsValidator />
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-semibold">
+                                Select User
+                            </label>
+
+                            <select class="form-control modern-input"
+                                    @bind="newBill.UserId">
+
+                                <option value="">
+                                    -- Select User --
+                                </option>
+
+                                @foreach (var u in FilteredUsers)
+                                {
+                                    <option value="@u.Id">
+                                        @u.Email
+                                    </option>
+                                }
+
+                            </select>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-semibold">
+                                Bill Title
+                            </label>
+
+                            <InputText class="form-control modern-input"
+                                       placeholder="Enter bill title"
+                                       @bind-Value="newBill.Title" />
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-semibold">
+                                Amount
+                            </label>
+
+                            <InputNumber class="form-control modern-input"
+                                         placeholder="Enter amount"
+                                         @bind-Value="newBill.Amount" />
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Status
+                            </label>
+
+                            <InputSelect class="form-control modern-input"
+                                         @bind-Value="newBill.Status">
+
+                                <option value="Pending">
+                                    Pending
+                                </option>
+
+                                <option value="Paid">
+                                    Paid
+                                </option>
+
+                            </InputSelect>
+
+                        </div>
+
+                        <button class="btn btn-primary primary-btn w-100"
+                                disabled="@isSaving">
+
+                            @(isSaving ? "Saving..." : "Create Bill")
+
+                        </button>
+
+                    </EditForm>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BILL TABLE -->
+
+        <div class="col-lg-8">
+
+            <div class="main-card">
+
+                <div class="card-header-custom d-flex justify-content-between align-items-center">
+
+                    <div class="section-title">
+                        All Bills
+                    </div>
+
+                    <div class="text-muted small">
+                        @FilteredBills.Count Bills Found
+                    </div>
+
+                </div>
+
+                <div class="p-4">
+
+                    @if (isLoading)
+                    {
+                        <div class="text-center py-5">
+                            <div class="spinner-border text-primary"></div>
+                        </div>
+                    }
+                    else if (FilteredBills.Count == 0)
+                    {
+                        <div class="empty-box">
+
+                            <i class="fa fa-file-circle-xmark"></i>
+
+                            <h5>No Bills Found</h5>
+
+                            <p>
+                                There are currently no bills available
+                            </p>
+
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="bill-table-wrapper">
+
+                            <table class="modern-table">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>Bill</th>
+                                        <th>User</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    @foreach (var b in FilteredBills.OrderByDescending(x => x.CreatedAt))
+                                    {
+                                        <tr>
+
+                                            <td>
+
+                                                <div class="bill-title">
+                                                    @b.Title
+                                                </div>
+
+                                                <div class="bill-date">
+                                                    Invoice Generated
+                                                </div>
+
+                                            </td>
+
+                                            <td>
+
+                                                <span class="user-badge">
+                                                    @b.UserEmail
+                                                </span>
+
+                                            </td>
+
+                                            <td>
+
+                                                <div class="amount-text">
+                                                    Rs. @b.Amount
+                                                </div>
+
+                                            </td>
+
+                                            <td>
+
+                                                @if (b.Status == "Paid")
+                                                {
+                                                    <span class="status-badge status-paid">
+                                                        Paid
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="status-badge status-pending">
+                                                        Pending
+                                                    </span>
+                                                }
+
+                                            </td>
+
+                                            <td>
+
+                                                <div class="bill-date">
+                                                    @b.CreatedAt.ToString("dd MMM yyyy")
+                                                </div>
+
+                                                <div class="bill-date">
+                                                    @b.CreatedAt.ToString("hh:mm tt")
+                                                </div>
+
+                                            </td>
+
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    }
+
+                </div>
 
             </div>
 
@@ -265,7 +716,6 @@
             if (response.IsSuccessStatusCode)
             {
                 successMessage = "Bill created successfully!";
-
                 errorMessage = null;
 
                 newBill = new Bill();
