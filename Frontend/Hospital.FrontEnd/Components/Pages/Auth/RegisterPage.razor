@@ -5,6 +5,7 @@
 @rendermode InteractiveServer
 @using Hospital.FrontEnd.Components.Layout
 @layout NavMenu3
+@using Microsoft.AspNetCore.Identity
 
 
 <div class="container" style="margin-top: 100px;">
@@ -58,20 +59,50 @@
     };
 
     private async Task HandleSubmitAsync()
+{
+    successMessage = null;
+
+    errorMessage = null;
+
+    HttpResponseMessage? response =
+        await authClient.AddUser(user);
+
+    if (response.IsSuccessStatusCode)
     {
-        successMessage = null;
-        errorMessage = null;
-        HttpResponseMessage? response = await authClient.AddUser(user);
-        if(response.IsSuccessStatusCode)
+        successMessage =
+            "Registration successful";
+
+        StateHasChanged();
+
+        await Task.Delay(2000);
+
+        NavigationManager.NavigateTo("/");
+    }
+    else
+    {
+        try
         {
-            successMessage = "Registration successfully";
-            StateHasChanged();
-            await Task.Delay(2000);
-            NavigationManager.NavigateTo("/");
+            var errors =
+                await response.Content
+                .ReadFromJsonAsync<List<IdentityError>>();
+
+            if (errors != null && errors.Any())
+            {
+                errorMessage = string.Join(
+                    "\n",
+                    errors.Select(x => x.Description));
+            }
+            else
+            {
+                errorMessage =
+                    "Registration failed.";
+            }
         }
-        else
+        catch
         {
-            errorMessage = "Registration failed. Please try again.";
+            errorMessage =
+                "Registration failed.";
         }
     }
+}
 }
