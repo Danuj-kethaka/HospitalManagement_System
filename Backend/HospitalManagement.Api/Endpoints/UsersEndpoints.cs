@@ -38,9 +38,8 @@ public static class UsersEndpoints
             });
         }).RequireAuthorization();
 
-        group.MapGet("/all", async (
-            UserManager<ApplicationUser> userManager,
-            ClaimsPrincipal user) =>
+        //get all users
+        group.MapGet("/all", async ( UserManager<ApplicationUser> userManager,ClaimsPrincipal user) =>
             {
                 if (!user.IsInRole("Admin"))
                 {

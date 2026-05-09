@@ -1,94 +1,232 @@
 ﻿@page "/AdminAppointments"
-@using Hospital.FrontEnd.Components.Layout
 @layout AdminSideBar
-@using Radzen
+@using Hospital.FrontEnd.Components.Layout
+@using Hospital.FrontEnd.Models
 @using Hospital.FrontEnd.Clients
-@using Radzen.Blazor
+
 @inject AppointmentClient appointmentClient
-@rendermode @(new InteractiveServerRenderMode(prerender: false))
 @inject IJSRuntime JS
 @inject NavigationManager NavigationManager
+@rendermode InteractiveServer
 
-
-<div class="card-header text-center fw-bold">
-    <span>Appointments</span>
-</div>
-
-<div class="card-body">
-      <div style="max-width: 1300px; margin: auto;">
-    @if (isLoadingAppointments)
-        {
-            <p class="text-center">Loading your appointments...</p>
-        }
-        else if (appointments == null || !appointments.Any())
-        {
-            <p class="text-muted text-center">You have no appointments yet.</p>
-        }
-        else
-        {
-   <RadzenDataGrid TItem="Appointment"
-                Data="@appointments"
-                AllowPaging="true"
-                PageSize="5"
-                AllowSorting="true"
-                AllowFiltering="true"
-                Class="mt-3">
-
-    <Columns>
-        <RadzenDataGridColumn TItem="Appointment" Property="DoctoreName" Title="Doctor" Width="150px" />
-
-        <RadzenDataGridColumn TItem="Appointment" Property="DepartmentName" Title="Department" Width="150px" />
-
-        <RadzenDataGridColumn TItem="Appointment" Property="DateTime" Title="Date" Width="200px">
-            <Template Context="apt">
-                @apt.DateTime.ToString("dd MMM yyyy hh:mm tt")
-            </Template>
-        </RadzenDataGridColumn>
-    </Columns>
-
-</RadzenDataGrid>
-
+<style>
+    .custom-table {
+        border-radius: 12px;
+        overflow: hidden;
+        background: white;
     }
-      </div>
-</div>
 
+    .custom-table thead {
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        color: white;
+        font-weight: 500;
+    }
+
+    .custom-table th {
+        border: none;
+        padding: 14px;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+
+    .custom-table td {
+        padding: 14px;
+        vertical-align: middle;
+        border-top: 1px solid #f1f1f1;
+    }
+
+    .custom-table tbody tr {
+        transition: all 0.2s ease;
+    }
+
+    .custom-table tbody tr:hover {
+        background-color: #f8f9fa;
+        transform: scale(1.002);
+    }
+
+    .badge-custom {
+        padding: 6px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .btn-action {
+        border-radius: 20px;
+        padding: 5px 12px;
+        font-size: 12px;
+    }
+
+    .table-card {
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        padding: 20px;
+        background: #fff;
+    }
+</style>
+
+<div class="container-fluid mt-2">
+    <div class="d-flex justify-content-center align-items-center mb-4">
+        <h2 class="fw-bold">
+           All Appointments
+        </h2>
+    </div>
+
+    @if (isLoading)
+    {
+        <div class="text-center py-5">
+            <p class="lead">Loading appointments...</p>
+        </div>
+    }
+    else if (allAppointments == null || !allAppointments.Any())
+    {
+        <div class="alert alert-info">No appointments found.</div>
+    }
+    else
+    {
+        <div class="table-card">
+            <div class="table-responsive">
+                <table class="table custom-table align-middle">
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Patient</th>
+                            <th>Doctor</th>
+                            <th>Department</th>
+                            <th>Date & Time</th>
+                            <th>Status</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var apt in allAppointments.OrderByDescending(a => a.DateTime))
+                        {
+                            <tr>
+                                <td class="fw-semibold text-muted">#@apt.Id</td>
+                                <td>
+                                    <div class="fw-semibold">@apt.UserEmail</div>
+                                </td>
+                                <td>@apt.DoctoreName</td>
+                                <td>
+                                    <span class="text-primary fw-medium">@apt.DepartmentName</span>
+                                </td>
+                                <td>
+                                    <div>@apt.DateTime.ToString("dd MMM yyyy")</div>
+                                    <small class="text-muted">@apt.DateTime.ToString("hh:mm tt")</small>
+                                </td>
+                                <td>
+                                    @if (apt.Status == "Pending")
+                                    {
+                                        <span class="badge bg-warning text-dark badge-custom">Pending</span>
+                                    }
+                                    else if (apt.Status == "Accepted")
+                                    {
+                                        <span class="badge bg-success badge-custom">Accepted</span>
+                                    }
+                                    else if (apt.Status == "Rejected")
+                                    {
+                                        <span class="badge bg-danger badge-custom">Rejected</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary badge-custom">@apt.Status</span>
+                                    }
+                                </td>
+                                <td class="text-center">
+                                    @if (apt.Status == "Pending")
+                                    {
+                                        <button class="btn btn-success btn-sm btn-action me-2"
+                                                @onclick="() => AcceptAppointment(apt.Id)">
+                                            <i class="fa fa-check me-1"></i>Accept
+                                        </button>
+
+                                        <button class="btn btn-danger btn-sm btn-action"
+                                                @onclick="() => RejectAppointment(apt.Id)">
+                                            <i class="fa fa-times me-1"></i>Reject
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">—</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
 
 @code {
-    private CreateAppointment newAppointment = new();
-    private List<Appointment>? appointments;
-    private string? successMessage;
-    private string? errorMessage;
-    private bool isLoading = false;
-    private bool isLoadingAppointments = true;
+    private List<Appointment>? allAppointments;
+    private bool isLoading = true;
+
+    private Task AcceptAppointment(int id)
+    {
+        return UpdateStatus(id, "Accepted");
+    }
+
+    private Task RejectAppointment(int id)
+    {
+        return UpdateStatus(id, "Rejected");
+    }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
-{
-    if (firstRender)
     {
-        await LoadMyAppointments();
-        isLoadingAppointments = false;
-        StateHasChanged();
+        if (firstRender)
+        {
+            await LoadAllAppointments();
+        }
     }
-}
 
-    private async Task LoadMyAppointments()
+    private async Task LoadAllAppointments()
     {
+        isLoading = true;
+        StateHasChanged();
+
         try
         {
             var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
 
-            if (!string.IsNullOrWhiteSpace(token))
+            if (string.IsNullOrWhiteSpace(token))
             {
-               appointments = await appointmentClient.GetAllAppointmentAsync(token);
+                NavigationManager.NavigateTo("/");
+                return;
+            }
+
+            allAppointments = await appointmentClient.GetAllAppointmentsAsync(token);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading appointments: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task UpdateStatus(int appointmentId, string newStatus)
+    {
+        try
+        {
+            var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
+            var response = await appointmentClient.UpdateAppointmentStatusAsync(appointmentId, newStatus, token);
+
+            if (response.IsSuccessStatusCode)
+            {
+                await LoadAllAppointments();
             }
             else
             {
-                appointments = new();
+                Console.WriteLine("Failed to update appointment status.");
             }
         }
-        catch
+        catch (Exception ex)
         {
-            appointments = new();
+            Console.WriteLine($"Error updating status: {ex.Message}");
         }
     }
 }

@@ -1,0 +1,267 @@
+﻿@page "/AdminLabResults"
+@layout AdminSideBar
+@using Hospital.FrontEnd.Components.Layout
+@using Hospital.FrontEnd.Models
+@using Hospital.FrontEnd.Clients
+@inject LabResultClient labResultClient
+@inject AuthClient authClient
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+
+<style>
+    .glass-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        border: none;
+    }
+
+    .lab-item {
+        border: 1px solid #f1f1f1;
+        border-radius: 12px;
+        padding: 14px;
+        transition: 0.2s;
+        margin-bottom: 10px;
+        background: #fff;
+    }
+
+    .lab-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .scroll-area {
+        max-height: 600px;
+        overflow-y: auto;
+    }
+
+    .user-badge {
+        font-size: 12px;
+        padding: 5px 10px;
+        border-radius: 20px;
+        background: #212529;
+        color: white;
+    }
+
+    .file-link {
+        text-decoration: none;
+        font-weight: 500;
+    }
+</style>
+
+<div class="container-fluid mt-3">
+
+    <div class="row g-3">
+
+        <!-- CREATE LAB RESULT -->
+        <div class="col-md-4">
+
+            <div class="glass-card p-3">
+
+                <h5 class="mb-3">Create Lab Result</h5>
+
+                <select class="form-control mb-2"
+                        @bind="selectedUserId">
+
+                    <option value="">-- Select User --</option>
+
+                    @foreach (var u in users)
+                    {
+                        <option value="@u.Id">@u.Email</option>
+                    }
+
+                </select>
+
+                <InputText class="form-control mb-2"
+                           placeholder="Title"
+                           @bind-Value="title" />
+
+                <InputTextArea class="form-control mb-2"
+                               placeholder="Result Text"
+                               @bind-Value="resultText" />
+
+                <InputFile OnChange="HandleFileChange"
+                           class="form-control mb-3" />
+
+                <button class="btn btn-primary w-100"
+                        @onclick="CreateLabResult"
+                        disabled="@isSaving">
+
+                    @(isSaving ? "Uploading..." : "Upload Result")
+
+                </button>
+
+                @if (!string.IsNullOrEmpty(message))
+                {
+                    <div class="alert alert-info mt-2">
+                        @message
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+        <!-- LAB RESULT LIST -->
+        <div class="col-md-8">
+
+            <div class="glass-card p-3">
+
+                <h5 class="mb-3">All Lab Results</h5>
+
+                @if (isLoading)
+                {
+                    <p>Loading lab results...</p>
+                }
+                else if (labResults == null || !labResults.Any())
+                {
+                    <p class="text-muted text-center py-4">
+                        No lab results found
+                    </p>
+                }
+                else
+                {
+                    <div class="scroll-area">
+
+                        @foreach (var item in labResults.OrderByDescending(x => x.CreatedAt))
+                        {
+                            <div class="lab-item">
+
+                                <div class="d-flex justify-content-between">
+
+                                    <div>
+
+                                        <div class="fw-bold text-primary">
+                                            @item.Title
+                                        </div>
+
+                                        <small class="text-muted">
+                                            @item.CreatedAt.ToString("dd MMM yyyy hh:mm tt")
+                                        </small>
+
+                                        <p class="mb-1 mt-2">
+                                            @item.ResultText
+                                        </p>
+
+                                    </div>
+
+                                    <div class="text-end">
+
+                                        <span class="user-badge">
+                                            @item.UserEmail
+                                        </span>
+
+                                        @if (!string.IsNullOrEmpty(item.FilePath))
+                                        {
+                                            <div class="mt-2">
+                                                <a class="file-link"
+                                                   href="http://localhost:5253/@item.FilePath"
+                                                   target="_blank">
+
+                                                    View File
+
+                                                </a>
+                                            </div>
+                                        }
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        }
+
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@code {
+
+    private List<UserDetails> users = new();
+    private List<LabResult> labResults = new();
+
+    private string selectedUserId = "";
+    private string title = "";
+    private string resultText = "";
+
+    private IBrowserFile? selectedFile;
+
+    private bool isLoading = true;
+    private bool isSaving = false;
+
+    private string? message;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadData();
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadData()
+    {
+        var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
+
+        users = await authClient.GetAllUsers(token);
+
+        labResults = await labResultClient.GetAllLabResultsAsync(token) ?? new();
+
+        isLoading = false;
+    }
+
+    private void HandleFileChange(InputFileChangeEventArgs e)
+    {
+        selectedFile = e.File;
+    }
+
+    private async Task CreateLabResult()
+    {
+        isSaving = true;
+        message = null;
+
+        try
+        {
+            var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
+
+            var response = await labResultClient.CreateLabResultAsync(
+                token,
+                selectedUserId,
+                title,
+                resultText,
+                selectedFile);
+
+            if (response.IsSuccessStatusCode)
+            {
+                message = "Lab result uploaded successfully";
+
+                selectedUserId = "";
+                title = "";
+                resultText = "";
+                selectedFile = null;
+
+                labResults =
+                    await labResultClient.GetAllLabResultsAsync(token)
+                    ?? new();
+            }
+            else
+            {
+                message = "Failed to upload lab result";
+            }
+        }
+        catch (Exception ex)
+        {
+            message = ex.Message;
+        }
+
+        isSaving = false;
+    }
+}

@@ -29,20 +29,20 @@
       </div>
       <ul class="nav-links">
         <li>
-          <a href="/AdminDashboard">
+         <NavLink href="/AdminDashboard">
             <i class="bx bx-grid-alt"></i>
             <span class="link_name">Dashboard</span>
-          </a>
+          </NavLink>
           <ul class="sub-menu blank">
             <li><a class="link_name" href="#">Category</a></li>
           </ul>
         </li>
         <li>
           <div class="iocn-link">
-            <a href="/AdminAppointments">
+            <NavLink href="/AdminAppointments">
               <i class="bx bx-collection"></i>
               <span class="link_name">Appointments</span>
-            </a>
+            </NavLink>
              <ul class="sub-menu blank">
             <li><a class="link_name" href="/AdminAppointments">Appointments</a></li>
           </ul>
@@ -50,10 +50,53 @@
         </li>
         <li>
           <div class="iocn-link">
-            <a href="/AdminUsers">
+            <NavLink href="/AdminMedicalRecords">
+              <i class="bx bx-file"></i>
+              <span class="link_name">Medical Records</span>
+            </NavLink>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="">Medical Records</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="iocn-link">
+              <NavLink href="/AdminBills">
+                  <i class="bx bx-credit-card"></i>
+                  <span class="link_name">Bills</span>
+              </NavLink>
+
+              <ul class="sub-menu blank">
+                  <li>
+                      <a class="link_name" href="/AdminBills">
+                          Bills
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </li>
+      <li>
+          <div class="iocn-link">
+              <NavLink href="/AdminLabResults">
+                  <i class="bx bxs-flask"></i>
+                  <span class="link_name">Lab Results</span>
+              </NavLink>
+
+              <ul class="sub-menu blank">
+                  <li>
+                      <a class="link_name" href="/AdminLabResults">
+                          Lab Results
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </li>
+         <li>
+          <div class="iocn-link">
+            <NavLink href="/AdminUsers">
               <i class="bx bx-user"></i>
               <span class="link_name">Users</span>
-            </a>
+            </NavLink>
             <ul class="sub-menu blank">
               <li><a class="link_name" href="">Users</a></li>
             </ul>
@@ -95,5 +138,3 @@
         sidebar.classList.toggle("close");
       });
     </script>
-
-

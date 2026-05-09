@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3ORBCNjrKi0=",
+  "dgSpecHash": "TKw1iBxgH4U=",
   "success": true,
-  "projectFilePath": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\Hospital.FrontEnd.csproj",
+  "projectFilePath": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\Hospital.FrontEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\jquery\\1.7.0\\jquery.1.7.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\jquery-timepicker-jt\\1.11.15\\jquery-timepicker-jt.1.11.15.nupkg.sha512",
@@ -22,7 +22,7 @@
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.identitymodel.logging\\8.17.0\\microsoft.identitymodel.logging.8.17.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.17.0\\microsoft.identitymodel.tokens.8.17.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.jsinterop\\8.0.0\\microsoft.jsinterop.8.0.0.nupkg.sha512",
-    "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\radzen.blazor.10.1.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\radzen.blazor.10.3.2.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.17.0\\system.identitymodel.tokens.jwt.8.17.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512"
   ],

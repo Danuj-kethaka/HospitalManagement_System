@@ -1,0 +1,304 @@
+﻿@page "/AdminBills"
+@layout AdminSideBar
+@using Hospital.FrontEnd.Components.Layout
+@using Hospital.FrontEnd.Models
+@using Hospital.FrontEnd.Clients
+
+@inject BillClient billClient
+@inject AuthClient authClient
+@inject IJSRuntime JS
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<style>
+    .glass-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        border: none;
+    }
+
+    .bill-item {
+        border: 1px solid #f1f1f1;
+        border-radius: 12px;
+        padding: 14px;
+        transition: 0.2s;
+        margin-bottom: 10px;
+        background: #fff;
+    }
+
+    .bill-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(239, 241, 240, 0.08);
+    }
+
+    .badge-user {
+        font-size: 12px;
+        padding: 5px 10px;
+        border-radius: 20px;
+    }
+
+    .scroll-area {
+        max-height: 600px;
+        overflow-y: auto;
+    }
+
+    .amount-text {
+        font-size: 18px;
+        font-weight: bold;
+        color: #0d6efd;
+    }
+</style>
+
+<div class="container-fluid mt-3">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <input class="form-control w-100"
+               placeholder="Search bills..."
+               @bind="searchText"
+               @bind:event="oninput" />
+    </div>
+
+    @if (!string.IsNullOrEmpty(successMessage))
+    {
+        <div class="alert alert-success">@successMessage</div>
+    }
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger">@errorMessage</div>
+    }
+
+    <div class="row g-3">
+
+        <!-- CREATE BILL -->
+        <div class="col-md-4">
+
+            <div class="glass-card p-3">
+
+                <h5 class="mb-3">Create Bill</h5>
+
+                <EditForm Model="newBill" OnValidSubmit="CreateBill">
+
+                    <DataAnnotationsValidator />
+
+                    <select class="form-control mb-3"
+                            @bind="newBill.UserId">
+
+                        <option value="">-- Select User --</option>
+
+                        @foreach (var u in FilteredUsers)
+                        {
+                            <option value="@u.Id">
+                                @u.Email
+                            </option>
+                        }
+
+                    </select>
+
+                    <InputText class="form-control mb-2"
+                               placeholder="Bill Title"
+                               @bind-Value="newBill.Title" />
+
+                    <InputNumber class="form-control mb-2"
+                                 placeholder="Amount"
+                                 @bind-Value="newBill.Amount" />
+
+                    <InputSelect class="form-control mb-3"
+                                 @bind-Value="newBill.Status">
+
+                        <option value="Pending">Pending</option>
+                        <option value="Paid">Paid</option>
+
+                    </InputSelect>
+
+                    <button class="btn btn-primary w-100"
+                            disabled="@isSaving">
+
+                        @(isSaving ? "Saving..." : "Create Bill")
+
+                    </button>
+
+                </EditForm>
+
+            </div>
+
+        </div>
+
+        <!-- BILL LIST -->
+        <div class="col-md-8">
+
+            <div class="glass-card p-3">
+
+                <h5 class="mb-3">All Bills</h5>
+
+                @if (isLoading)
+                {
+                    <p>Loading bills...</p>
+                }
+                else if (FilteredBills.Count == 0)
+                {
+                    <div class="text-center text-muted py-5">
+                        <i class="fa fa-credit-card fa-2x"></i>
+                        <p class="mt-2">No bills found</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="scroll-area">
+
+                        @foreach (var b in FilteredBills.OrderByDescending(x => x.CreatedAt))
+                        {
+                            <div class="bill-item">
+
+                                <div class="d-flex justify-content-between">
+
+                                    <div>
+
+                                        <div class="fw-bold text-primary">
+                                            @b.Title
+                                        </div>
+
+                                        <small class="text-muted">
+                                            @b.CreatedAt.ToString("dd MMM yyyy hh:mm tt")
+                                        </small>
+
+                                        <div class="mt-2 amount-text">
+                                            Rs. @b.Amount
+                                        </div>
+
+                                    </div>
+
+                                    <div class="text-end">
+
+                                        <span class="badge bg-dark badge-user">
+                                            @b.UserEmail
+                                        </span>
+
+                                        <div class="mt-2">
+
+                                            @if (b.Status == "Paid")
+                                            {
+                                                <span class="badge bg-success">
+                                                    Paid
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-warning text-dark">
+                                                    Pending
+                                                </span>
+                                            }
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        }
+
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@code {
+
+    private List<UserDetails> users = new();
+    private List<Bill> bills = new();
+
+    private Bill newBill = new();
+
+    private bool isLoading = true;
+    private bool isSaving = false;
+
+    private string? successMessage;
+    private string? errorMessage;
+
+    private string searchText = "";
+    private string userSearch = "";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadData();
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadData()
+    {
+        isLoading = true;
+
+        var token = await JS.InvokeAsync<string>(
+            "localStorage.getItem",
+            "token");
+
+        users = await authClient.GetAllUsers(token);
+
+        bills = await billClient.GetAllBillsAsync(token);
+
+        isLoading = false;
+    }
+
+    private async Task CreateBill()
+    {
+        isSaving = true;
+
+        try
+        {
+            var token = await JS.InvokeAsync<string>(
+                "localStorage.getItem",
+                "token");
+
+            var response = await billClient.CreateBillAsync(newBill, token);
+
+            if (response.IsSuccessStatusCode)
+            {
+                successMessage = "Bill created successfully!";
+
+                errorMessage = null;
+
+                newBill = new Bill();
+
+                await LoadData();
+            }
+            else
+            {
+                errorMessage = "Failed to create bill";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+
+        isSaving = false;
+    }
+
+    private List<UserDetails> FilteredUsers =>
+        string.IsNullOrWhiteSpace(userSearch)
+            ? users
+            : users.Where(x =>
+                x.Email.Contains(userSearch,
+                StringComparison.OrdinalIgnoreCase))
+            .ToList();
+
+    private List<Bill> FilteredBills =>
+        string.IsNullOrWhiteSpace(searchText)
+            ? bills
+            : bills.Where(b =>
+                b.Title.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+                b.UserEmail.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+                b.Status.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+}

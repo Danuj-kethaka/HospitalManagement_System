@@ -48,7 +48,7 @@ public static class AppointmentEndPoints
             return Results.Ok(appointments);
         }).RequireAuthorization();
         
-        
+        //get all
         group.MapGet("/all", async (ApplicationDbContext dbContext, ClaimsPrincipal user) =>
         {
             
@@ -62,24 +62,27 @@ public static class AppointmentEndPoints
             return Results.Ok(appointments);
         }).RequireAuthorization();
 
-        group.MapPut("/{id}/status", async (int id, UpdateAppointmentStatus request, ApplicationDbContext dbContext, ClaimsPrincipal user) =>
+        //update status
+        group.MapPut("/{id}/status", async ( int id, UpdateAppointmentStatus request, ApplicationDbContext dbContext,  ClaimsPrincipal user) =>
         {
             if (!user.IsInRole("Admin"))
                 return Results.Forbid();
+
+            if (string.IsNullOrWhiteSpace(request.Status))
+                return Results.BadRequest("Status is required");
 
             var appointment = await dbContext.appointments.FindAsync(id);
 
             if (appointment is null)
                 return Results.NotFound();
 
-            appointment.Status = request.Status; // "Accepted" or "Rejected"
+            appointment.Status = request.Status.Trim();
 
             await dbContext.SaveChangesAsync();
 
             return Results.Ok(appointment);
         }).RequireAuthorization();
 
-    
         return group;
 
     }

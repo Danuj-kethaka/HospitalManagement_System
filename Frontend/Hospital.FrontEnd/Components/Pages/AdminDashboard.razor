@@ -1,7 +1,659 @@
 ﻿@page "/AdminDashboard"
-@using Hospital.FrontEnd.Components.Layout
 @layout AdminSideBar
-@using Radzen
+@using Hospital.FrontEnd.Components.Layout
 @using Hospital.FrontEnd.Clients
-@using Radzen.Blazor
+@using Hospital.FrontEnd.Models
+
+@inject AppointmentClient appointmentClient
+@inject AuthClient authClient
+@inject BillClient billClient
+@inject MedicalRecordClient medicalRecordClient
+@inject LabResultClient labResultClient
+
+@inject IJSRuntime JS
 @inject NavigationManager NavigationManager
+
+@rendermode InteractiveServer
+
+<style>
+
+    .dashboard-container {
+        padding: 20px;
+    }
+
+    .dashboard-title {
+        font-size: 30px;
+        font-weight: 700;
+        color: #1e293b;
+    }
+
+    .dashboard-subtitle {
+        color: #64748b;
+        font-size: 14px;
+    }
+
+    /* TOP CARDS */
+
+    .stats-card {
+        border-radius: 20px;
+        padding: 22px;
+        color: white;
+        position: relative;
+        overflow: hidden;
+        transition: 0.3s;
+        height: 150px;
+    }
+
+    .stats-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .stats-card i {
+        font-size: 40px;
+        opacity: 0.2;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .stats-number {
+        font-size: 34px;
+        font-weight: bold;
+    }
+
+    .stats-title {
+        font-size: 15px;
+        opacity: 0.95;
+    }
+
+    .bg-blue {
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    }
+
+    .bg-green {
+        background: linear-gradient(135deg, #16a34a, #15803d);
+    }
+
+    .bg-orange {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+    }
+
+    .bg-red {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+
+    /* SECTION CARD */
+
+    .dashboard-card {
+        background: white;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 5px 18px rgba(0,0,0,0.05);
+        height: 100%;
+    }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 18px;
+    }
+
+    /* APPOINTMENT STATUS */
+
+    .status-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 14px;
+    }
+
+    .status-label {
+        font-weight: 600;
+    }
+
+    .progress {
+        height: 10px;
+        border-radius: 30px;
+        background: #e2e8f0;
+    }
+
+    .progress-bar {
+        border-radius: 30px;
+    }
+
+    /* ACTIVITY */
+
+    .activity-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 0;
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .activity-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+    }
+
+    .icon-blue {
+        background: #2563eb;
+    }
+
+    .icon-green {
+        background: #16a34a;
+    }
+
+    .icon-orange {
+        background: #f59e0b;
+    }
+
+    .icon-red {
+        background: #ef4444;
+    }
+
+    .activity-text {
+        font-size: 14px;
+    }
+
+    .activity-text small {
+        color: #94a3b8;
+    }
+
+    /* PIE CHART */
+
+    .chart-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .pie-chart {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background:
+            conic-gradient(
+                #22c55e 0% @(paidPercent)%,
+                #f59e0b @(paidPercent)% 100%
+            );
+        position: relative;
+    }
+
+    .pie-chart::after {
+        content: '';
+        width: 120px;
+        height: 120px;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .chart-center-text {
+        position: absolute;
+        z-index: 10;
+        text-align: center;
+        font-weight: bold;
+        color: #1e293b;
+    }
+
+    .chart-legend {
+        margin-top: 18px;
+    }
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .legend-color {
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+    }
+
+    .color-green {
+        background: #22c55e;
+    }
+
+    .color-yellow {
+        background: #f59e0b;
+    }
+
+</style>
+
+<div class="dashboard-container">
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-md-3">
+
+            <div class="stats-card bg-blue">
+
+                <div class="stats-title">
+                    Total Users
+                </div>
+
+                <div class="stats-number">
+                    @totalUsers
+                </div>
+
+                <i class="fa fa-users"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="stats-card bg-green">
+
+                <div class="stats-title">
+                    Appointments
+                </div>
+
+                <div class="stats-number">
+                    @totalAppointments
+                </div>
+
+                <i class="fa fa-calendar-check"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="stats-card bg-orange">
+
+                <div class="stats-title">
+                    Medical Records
+                </div>
+
+                <div class="stats-number">
+                    @totalRecords
+                </div>
+
+                <i class="fa fa-file-medical"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="stats-card bg-red">
+
+                <div class="stats-title">
+                    Lab Results
+                </div>
+
+                <div class="stats-number">
+                    @totalLabResults
+                </div>
+
+                <i class="fa fa-flask"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SECOND ROW -->
+
+    <div class="row g-4">
+
+        <!-- APPOINTMENT STATUS -->
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card">
+
+                <div class="card-title">
+                    Appointment Status
+                </div>
+
+                <div class="status-row">
+                    <span class="status-label text-success">
+                        Accepted
+                    </span>
+
+                    <span>
+                        @acceptedAppointments
+                    </span>
+                </div>
+
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-success"
+                         style="width:@acceptedPercent%">
+                    </div>
+                </div>
+
+                <div class="status-row">
+                    <span class="status-label text-warning">
+                        Pending
+                    </span>
+
+                    <span>
+                        @pendingAppointments
+                    </span>
+                </div>
+
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-warning"
+                         style="width:@pendingPercent%">
+                    </div>
+                </div>
+
+                <div class="status-row">
+                    <span class="status-label text-danger">
+                        Rejected
+                    </span>
+
+                    <span>
+                        @rejectedAppointments
+                    </span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar bg-danger"
+                         style="width:@rejectedPercent%">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BILL CHART -->
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card">
+
+                <div class="card-title">
+                    Bill Payments
+                </div>
+
+                <div class="chart-wrapper">
+
+                    <div class="pie-chart d-flex justify-content-center align-items-center">
+
+                        <div class="chart-center-text">
+                            <div style="font-size:24px">
+                                @totalBills
+                            </div>
+
+                            <small>
+                                Bills
+                            </small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="chart-legend">
+
+                    <div class="legend-item">
+
+                        <div class="legend-color color-green"></div>
+
+                        <div>
+                            Paid Bills (@paidBills)
+                        </div>
+
+                    </div>
+
+                    <div class="legend-item">
+
+                        <div class="legend-color color-yellow"></div>
+
+                        <div>
+                            Pending Bills (@pendingBills)
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- THIRD ROW -->
+
+    <div class="row g-4 mt-1">
+
+        <div class="col-lg-12">
+
+            <div class="dashboard-card">
+
+                <div class="card-title">
+                    Recent Activities
+                </div>
+
+                <div class="activity-item">
+
+                    <div class="activity-icon icon-blue">
+                        <i class="fa fa-user"></i>
+                    </div>
+
+                    <div class="activity-text">
+                        <div>
+                            Total registered users in the system
+                        </div>
+
+                        <small>
+                            @totalUsers users
+                        </small>
+                    </div>
+
+                </div>
+
+                <div class="activity-item">
+
+                    <div class="activity-icon icon-green">
+                        <i class="fa fa-calendar-check"></i>
+                    </div>
+
+                    <div class="activity-text">
+                        <div>
+                            Accepted appointments
+                        </div>
+
+                        <small>
+                            @acceptedAppointments appointments approved
+                        </small>
+                    </div>
+
+                </div>
+
+                <div class="activity-item">
+
+                    <div class="activity-icon icon-orange">
+                        <i class="fa fa-file-medical"></i>
+                    </div>
+
+                    <div class="activity-text">
+                        <div>
+                            Medical records available
+                        </div>
+
+                        <small>
+                            @totalRecords records stored
+                        </small>
+                    </div>
+
+                </div>
+
+                <div class="activity-item border-0">
+
+                    <div class="activity-icon icon-red">
+                        <i class="fa fa-flask"></i>
+                    </div>
+
+                    <div class="activity-text">
+                        <div>
+                            Uploaded lab reports
+                        </div>
+
+                        <small>
+                            @totalLabResults reports uploaded
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@code {
+
+    private List<UserDetails> users = new();
+
+    private List<Appointment> appointments = new();
+
+    private List<Bill> bills = new();
+
+    private List<MedicalRecord> records = new();
+
+    private List<LabResult> labResults = new();
+
+    private int totalUsers;
+    private int totalAppointments;
+    private int totalBills;
+    private int totalRecords;
+    private int totalLabResults;
+
+    private int acceptedAppointments;
+    private int pendingAppointments;
+    private int rejectedAppointments;
+
+    private int paidBills;
+    private int pendingBills;
+
+    private double acceptedPercent;
+    private double pendingPercent;
+    private double rejectedPercent;
+
+    private double paidPercent;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadDashboard();
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadDashboard()
+    {
+        try
+        {
+            var token = await JS.InvokeAsync<string>(
+                "localStorage.getItem",
+                "token");
+
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                NavigationManager.NavigateTo("/");
+                return;
+            }
+
+            users = await authClient.GetAllUsers(token);
+
+            appointments =
+                await appointmentClient.GetAllAppointmentsAsync(token)
+                ?? new();
+
+            bills =
+                await billClient.GetAllBillsAsync(token)
+                ?? new();
+
+            records =
+                await medicalRecordClient.GetAllMedicalRecordsAsync(token)
+                ?? new();
+
+            labResults =
+                await labResultClient.GetAllLabResultsAsync(token)
+                ?? new();
+
+            // COUNTS
+
+            totalUsers = users.Count;
+
+            totalAppointments = appointments.Count;
+
+            totalBills = bills.Count;
+
+            totalRecords = records.Count;
+
+            totalLabResults = labResults.Count;
+
+            // APPOINTMENTS
+
+            acceptedAppointments =
+                appointments.Count(x => x.Status == "Accepted");
+
+            pendingAppointments =
+                appointments.Count(x => x.Status == "Pending");
+
+            rejectedAppointments =
+                appointments.Count(x => x.Status == "Rejected");
+
+            if (totalAppointments > 0)
+            {
+                acceptedPercent =
+                    (acceptedAppointments * 100.0) / totalAppointments;
+
+                pendingPercent =
+                    (pendingAppointments * 100.0) / totalAppointments;
+
+                rejectedPercent =
+                    (rejectedAppointments * 100.0) / totalAppointments;
+            }
+
+            // BILLS
+
+            paidBills =
+                bills.Count(x => x.Status == "Paid");
+
+            pendingBills =
+                bills.Count(x => x.Status == "Pending");
+
+            if (totalBills > 0)
+            {
+                paidPercent =
+                    (paidBills * 100.0) / totalBills;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+}

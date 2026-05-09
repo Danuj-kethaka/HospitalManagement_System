@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q5usN+VDQD0=",
+  "dgSpecHash": "y94hNpBF0UM=",
   "success": true,
-  "projectFilePath": "D:\\GIT HUB Projects\\Dotnet First Project\\backend\\HospitalManagement.Api\\HospitalManagement.Api.csproj",
+  "projectFilePath": "D:\\GIT HUB Projects\\Dotnet First Project\\bACKEND\\hospitalmanagement.api\\HospitalManagement.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

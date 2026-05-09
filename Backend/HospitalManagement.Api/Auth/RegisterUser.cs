@@ -25,7 +25,7 @@ public static class RegisterUser
                 return Results.BadRequest(identityResult.Errors);
             }
 
-              IdentityResult AddToRoleResult =  await UserManager.AddToRoleAsync(user,Roles.Admin);
+              IdentityResult AddToRoleResult =  await UserManager.AddToRoleAsync(user,Roles.Member);
               if(!AddToRoleResult.Succeeded)
             {
                 return Results.BadRequest(AddToRoleResult.Errors);

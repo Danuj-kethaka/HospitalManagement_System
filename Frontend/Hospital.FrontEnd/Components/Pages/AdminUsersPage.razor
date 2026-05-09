@@ -1,52 +1,126 @@
 ﻿@page "/AdminUsers"
-@using Hospital.FrontEnd.Components.Layout
 @layout AdminSideBar
-@using Radzen
 @using Hospital.FrontEnd.Clients
-@using Radzen.Blazor
+@using Hospital.FrontEnd.Components.Layout
+@using Hospital.FrontEnd.Models
 
 @inject AuthClient authClient
-@rendermode @(new InteractiveServerRenderMode(prerender: false))
 @inject IJSRuntime JS
 @inject NavigationManager NavigationManager
+@rendermode InteractiveServer  
 
-<div class="card-header text-center fw-bold">
-    <span>All Users</span>
-</div>
+<style>
+    .custom-table {
+        border-radius: 12px;
+        overflow: hidden;
+        background: white;
+    }
 
-<div class="card-body">
-    <div style="max-width: 1300px; margin: auto;">
+    .custom-table thead {
+        background: linear-gradient(90deg, #1e3c72, #2a5298);
+        color: white;
+        font-weight: 500;
+    }
 
-        @if (isLoadingUsers)
-        {
-            <p class="text-center">Loading users...</p>
-        }
-        else if (users == null || !users.Any())
-        {
-            <p class="text-muted text-center">No users found.</p>
-        }
-        else
-        {
-            <RadzenDataGrid TItem="UserDetails"
-                            Data="@users"
-                            AllowPaging="true"
-                            PageSize="5"
-                            AllowSorting="true"
-                            AllowFiltering="true"
-                            Class="mt-3">
+    .custom-table th {
+        border: none;
+        padding: 14px;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
 
-                <Columns>
-                    <RadzenDataGridColumn TItem="UserDetails" Property="Initials" Title="Initials" Width="150px" />
-                    
-                    <RadzenDataGridColumn TItem="UserDetails" Property="Email" Title="Email" Width="200px" />
-                    
-                    <RadzenDataGridColumn TItem="UserDetails" Property="Role" Title="Role" Width="120px" />
-                </Columns>
+    .custom-table td {
+        padding: 14px;
+        vertical-align: middle;
+        border-top: 1px solid #f1f1f1;
+    }
 
-            </RadzenDataGrid>
-        }
+    .custom-table tbody tr {
+        transition: all 0.2s ease;
+    }
 
+    .custom-table tbody tr:hover {
+        background-color: #f8f9fa;
+        transform: scale(1.002);
+    }
+
+    .badge-custom {
+        padding: 6px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .table-card {
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        padding: 20px;
+        background: #fff;
+    }
+</style>
+
+<div class="container-fluid mt-2">
+    <div class="d-flex justify-content-center align-items-center mb-4">
+        <h2 class="fw-bold">All Users</h2>
     </div>
+
+    @if (isLoadingUsers)
+    {
+        <div class="text-center py-5">
+            <p class="lead">Loading users...</p>
+        </div>
+    }
+    else if (users == null || !users.Any())
+    {
+        <div class="alert alert-info text-center">No users found.</div>
+    }
+    else
+    {
+        <div class="table-card">
+            <div class="table-responsive">
+                <table class="table custom-table align-middle">
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Initials</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var user in users.OrderBy(u => u.Role))
+                        {
+                            <tr>
+                                <td class="fw-semibold text-muted">#@(users.IndexOf(user) + 1)</td>
+
+                                <td>
+                                    <div class="fw-semibold">@user.Initials</div>
+                                </td>
+
+                                <td>@user.Email</td>
+
+                                <td>
+                                    @if (user.Role == "Admin")
+                                    {
+                                        <span class="badge bg-danger badge-custom">Admin</span>
+                                    }
+                                    else if (user.Role == "Doctor")
+                                    {
+                                        <span class="badge bg-success badge-custom">Doctor</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary badge-custom">@user.Role</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    }
 </div>
 
 @code {
@@ -54,33 +128,39 @@
     private bool isLoadingUsers = true;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
-{
-    if (firstRender)
     {
-        await LoadUsers();
-        isLoadingUsers = false;
-        StateHasChanged();
+        if (firstRender)
+        {
+            await LoadUsers();
+        }
     }
-}
 
     private async Task LoadUsers()
     {
+        isLoadingUsers = true;
+        StateHasChanged();
+
         try
         {
             var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
 
-            if (!string.IsNullOrWhiteSpace(token))
+            if (string.IsNullOrWhiteSpace(token))
             {
-                users = await authClient.GetAllUsers(token);
+                NavigationManager.NavigateTo("/");
+                return;
             }
-            else
-            {
-                users = new();
-            }
+
+            users = await authClient.GetAllUsers(token);
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine($"ERROR loading users: {ex.Message}");
             users = new();
+        }
+        finally
+        {
+            isLoadingUsers = false;
+            StateHasChanged();
         }
     }
 }

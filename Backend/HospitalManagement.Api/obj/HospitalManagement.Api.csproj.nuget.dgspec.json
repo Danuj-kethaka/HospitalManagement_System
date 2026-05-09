@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GIT HUB Projects\\Dotnet First Project\\backend\\HospitalManagement.Api\\HospitalManagement.Api.csproj": {}
+    "D:\\GIT HUB Projects\\Dotnet First Project\\bACKEND\\hospitalmanagement.api\\HospitalManagement.Api.csproj": {}
   },
   "projects": {
-    "D:\\GIT HUB Projects\\Dotnet First Project\\backend\\HospitalManagement.Api\\HospitalManagement.Api.csproj": {
+    "D:\\GIT HUB Projects\\Dotnet First Project\\bACKEND\\hospitalmanagement.api\\HospitalManagement.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT HUB Projects\\Dotnet First Project\\backend\\HospitalManagement.Api\\HospitalManagement.Api.csproj",
+        "projectUniqueName": "D:\\GIT HUB Projects\\Dotnet First Project\\bACKEND\\hospitalmanagement.api\\HospitalManagement.Api.csproj",
         "projectName": "HospitalManagement.Api",
-        "projectPath": "D:\\GIT HUB Projects\\Dotnet First Project\\backend\\HospitalManagement.Api\\HospitalManagement.Api.csproj",
+        "projectPath": "D:\\GIT HUB Projects\\Dotnet First Project\\bACKEND\\hospitalmanagement.api\\HospitalManagement.Api.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT HUB Projects\\Dotnet First Project\\backend\\HospitalManagement.Api\\obj\\",
+        "outputPath": "D:\\GIT HUB Projects\\Dotnet First Project\\bACKEND\\hospitalmanagement.api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"

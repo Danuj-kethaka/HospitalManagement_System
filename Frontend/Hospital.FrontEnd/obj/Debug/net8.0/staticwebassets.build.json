@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ebM8lDTXpsX4xoPuTSc+kKzjFKdhVZCRjSZIEVNP9Gg=",
+  "Hash": "J0FqNs8jbgreY/jC8qd1y/dUvqWTm8z/29B00M4PUv0=",
   "Source": "Hospital.FrontEnd",
   "BasePath": "_content/Hospital.FrontEnd",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Hospital.FrontEnd\\wwwroot",
       "Source": "Hospital.FrontEnd",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\dark-base.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\dark-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/dark-base.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\dark-base.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\dark-base.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\dark-wcag.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\dark-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/dark-wcag.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\dark-wcag.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\dark-wcag.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\dark.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\dark.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/dark.css",
       "AssetKind": "All",
@@ -71,13 +71,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\dark.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\dark.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\default-base.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\default-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/default-base.css",
       "AssetKind": "All",
@@ -90,13 +90,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\default-base.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\default-base.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\default-wcag.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\default-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/default-wcag.css",
       "AssetKind": "All",
@@ -109,13 +109,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\default-wcag.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\default-wcag.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\default.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\default.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/default.css",
       "AssetKind": "All",
@@ -128,13 +128,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\default.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\default.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\humanistic-base.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\humanistic-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/humanistic-base.css",
       "AssetKind": "All",
@@ -147,13 +147,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\humanistic-base.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\humanistic-base.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\humanistic-dark-base.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\humanistic-dark-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/humanistic-dark-base.css",
       "AssetKind": "All",
@@ -166,13 +166,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\humanistic-dark-base.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\humanistic-dark-base.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\humanistic-dark-wcag.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\humanistic-dark-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/humanistic-dark-wcag.css",
       "AssetKind": "All",
@@ -185,13 +185,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\humanistic-dark-wcag.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\humanistic-dark-wcag.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\humanistic-dark.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\humanistic-dark.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/humanistic-dark.css",
       "AssetKind": "All",
@@ -204,13 +204,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\humanistic-dark.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\humanistic-dark.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\humanistic-wcag.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\humanistic-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/humanistic-wcag.css",
       "AssetKind": "All",
@@ -223,13 +223,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\humanistic-wcag.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\humanistic-wcag.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\humanistic.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\humanistic.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/humanistic.css",
       "AssetKind": "All",
@@ -242,13 +242,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\humanistic.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\humanistic.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\material-base.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\material-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material-base.css",
       "AssetKind": "All",
@@ -261,13 +261,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\material-base.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\material-base.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\material-dark-base.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\material-dark-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material-dark-base.css",
       "AssetKind": "All",
@@ -280,13 +280,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\material-dark-base.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\material-dark-base.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\material-dark-wcag.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\material-dark-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material-dark-wcag.css",
       "AssetKind": "All",
@@ -299,13 +299,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\material-dark-wcag.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\material-dark-wcag.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\material-dark.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\material-dark.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material-dark.css",
       "AssetKind": "All",
@@ -318,13 +318,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\material-dark.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\material-dark.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\material-wcag.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\material-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material-wcag.css",
       "AssetKind": "All",
@@ -337,13 +337,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\material-wcag.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\material-wcag.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\material.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\material.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material.css",
       "AssetKind": "All",
@@ -356,13 +356,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\material.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\material.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\software-base.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\software-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/software-base.css",
       "AssetKind": "All",
@@ -375,13 +375,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\software-base.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\software-base.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\software-dark-base.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\software-dark-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/software-dark-base.css",
       "AssetKind": "All",
@@ -394,13 +394,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\software-dark-base.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\software-dark-base.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\software-dark-wcag.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\software-dark-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/software-dark-wcag.css",
       "AssetKind": "All",
@@ -413,13 +413,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\software-dark-wcag.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\software-dark-wcag.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\software-dark.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\software-dark.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/software-dark.css",
       "AssetKind": "All",
@@ -432,13 +432,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\software-dark.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\software-dark.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\software-wcag.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\software-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/software-wcag.css",
       "AssetKind": "All",
@@ -451,13 +451,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\software-wcag.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\software-wcag.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\software.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\software.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/software.css",
       "AssetKind": "All",
@@ -470,13 +470,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\software.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\software.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\standard-base.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\standard-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/standard-base.css",
       "AssetKind": "All",
@@ -489,13 +489,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\standard-base.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\standard-base.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\standard-dark-base.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\standard-dark-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/standard-dark-base.css",
       "AssetKind": "All",
@@ -508,13 +508,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\standard-dark-base.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\standard-dark-base.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\standard-dark-wcag.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\standard-dark-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/standard-dark-wcag.css",
       "AssetKind": "All",
@@ -527,13 +527,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\standard-dark-wcag.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\standard-dark-wcag.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\standard-dark.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\standard-dark.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/standard-dark.css",
       "AssetKind": "All",
@@ -546,13 +546,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\standard-dark.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\standard-dark.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\standard-wcag.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\standard-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/standard-wcag.css",
       "AssetKind": "All",
@@ -565,13 +565,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\standard-wcag.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\standard-wcag.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\standard.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\standard.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/standard.css",
       "AssetKind": "All",
@@ -584,13 +584,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\css\\standard.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\css\\standard.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\fonts\\MaterialSymbolsOutlined.woff2",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\fonts\\MaterialSymbolsOutlined.woff2",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/MaterialSymbolsOutlined.woff2",
       "AssetKind": "All",
@@ -603,13 +603,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\fonts\\MaterialSymbolsOutlined.woff2"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\fonts\\MaterialSymbolsOutlined.woff2"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\fonts\\RobotoFlex.woff2",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\fonts\\RobotoFlex.woff2",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/RobotoFlex.woff2",
       "AssetKind": "All",
@@ -622,13 +622,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\fonts\\RobotoFlex.woff2"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\fonts\\RobotoFlex.woff2"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\fonts\\SourceSans3VF-Italic.ttf.woff2",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\fonts\\SourceSans3VF-Italic.ttf.woff2",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSans3VF-Italic.ttf.woff2",
       "AssetKind": "All",
@@ -641,13 +641,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\fonts\\SourceSans3VF-Italic.ttf.woff2"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\fonts\\SourceSans3VF-Italic.ttf.woff2"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\fonts\\SourceSans3VF-Upright.ttf.woff2",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\fonts\\SourceSans3VF-Upright.ttf.woff2",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSans3VF-Upright.ttf.woff2",
       "AssetKind": "All",
@@ -660,13 +660,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\fonts\\SourceSans3VF-Upright.ttf.woff2"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\fonts\\SourceSans3VF-Upright.ttf.woff2"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\Radzen.Blazor.js",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\Radzen.Blazor.js",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "Radzen.Blazor.js",
       "AssetKind": "All",
@@ -679,13 +679,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\Radzen.Blazor.js"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\Radzen.Blazor.js"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\Radzen.Blazor.min.js",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\Radzen.Blazor.min.js",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "Radzen.Blazor.min.js",
       "AssetKind": "All",
@@ -698,13 +698,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.1.0\\staticwebassets\\Radzen.Blazor.min.js"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\radzen.blazor\\10.3.2\\staticwebassets\\Radzen.Blazor.min.js"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Hospital.FrontEnd.styles.css",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Hospital.FrontEnd.styles.css",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Hospital.FrontEnd.styles.css",
       "AssetKind": "All",
@@ -717,13 +717,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Hospital.FrontEnd.styles.css"
+      "OriginalItemSpec": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Hospital.FrontEnd.styles.css"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Hospital.FrontEnd.bundle.scp.css",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Hospital.FrontEnd.bundle.scp.css",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Hospital.FrontEnd.bundle.scp.css",
       "AssetKind": "All",
@@ -736,13 +736,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Hospital.FrontEnd.bundle.scp.css"
+      "OriginalItemSpec": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Hospital.FrontEnd.bundle.scp.css"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\app.css",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\app.css",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -758,10 +758,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\CSS\\style.css",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\CSS\\style.css",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "CSS/style.css",
       "AssetKind": "All",
@@ -777,10 +777,10 @@
       "OriginalItemSpec": "wwwroot\\CSS\\style.css"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\h.png",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\h.png",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/h.png",
       "AssetKind": "All",
@@ -796,10 +796,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\h.png"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\HealthTips.jpg",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\HealthTips.jpg",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/HealthTips.jpg",
       "AssetKind": "All",
@@ -815,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\HealthTips.jpg"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\HealthTips2.jpg",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\HealthTips2.jpg",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/HealthTips2.jpg",
       "AssetKind": "All",
@@ -834,10 +834,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\HealthTips2.jpg"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\hospital1.jpg",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\hospital1.jpg",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/hospital1.jpg",
       "AssetKind": "All",
@@ -853,10 +853,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\hospital1.jpg"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\hospital2.jpg",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\hospital2.jpg",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/hospital2.jpg",
       "AssetKind": "All",
@@ -872,10 +872,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\hospital2.jpg"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\hospital4.jpg",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\hospital4.jpg",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/hospital4.jpg",
       "AssetKind": "All",
@@ -891,10 +891,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\hospital4.jpg"
     },
     {
-      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\Images\\u1.jpg",
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\Images\\u1.jpg",
       "SourceId": "Hospital.FrontEnd",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\Hospital.FrontEnd\\wwwroot\\",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
       "BasePath": "_content/Hospital.FrontEnd",
       "RelativePath": "Images/u1.jpg",
       "AssetKind": "All",
@@ -908,6 +908,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\u1.jpg"
+    },
+    {
+      "Identity": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\index.html",
+      "SourceId": "Hospital.FrontEnd",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GIT HUB Projects\\Dotnet First Project\\frontend\\hospital.frontend\\wwwroot\\",
+      "BasePath": "_content/Hospital.FrontEnd",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
     }
   ]
 }

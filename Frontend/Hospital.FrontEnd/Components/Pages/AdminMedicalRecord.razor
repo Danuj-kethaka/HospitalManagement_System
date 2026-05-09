@@ -1,0 +1,233 @@
+﻿@page "/AdminMedicalRecords"
+@layout AdminSideBar
+@using Hospital.FrontEnd.Components.Layout
+@using Hospital.FrontEnd.Models
+@using Hospital.FrontEnd.Clients
+
+@inject MedicalRecordClient medicalRecordClient
+@inject AuthClient authClient
+@inject IJSRuntime JS
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<style>
+    .glass-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        border: none;
+    }
+
+    .record-item {
+        border: 1px solid #f1f1f1;
+        border-radius: 12px;
+        padding: 12px;
+        transition: 0.2s;
+        margin-bottom: 10px;
+        background: #fff;
+    }
+
+    .record-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(239, 241, 240, 0.08);
+    }
+
+    .badge-user {
+        font-size: 12px;
+        padding: 5px 10px;
+        border-radius: 20px;
+    }
+
+    .scroll-area {
+        max-height: 600px;
+        overflow-y: auto;
+    }
+
+    .record-item {
+    border: 1px solid #f1f1f1;
+    border-radius: 12px;
+    padding: 14px;
+    transition: 0.2s;
+    margin-bottom: 10px;
+    background: #fff;
+    }
+</style>
+
+<div class="container-fluid mt-3">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <input class="form-control w-100" placeholder="Search records..."
+               @bind="searchText" @bind:event="oninput" />
+    </div>
+
+    @if (!string.IsNullOrEmpty(successMessage))
+    {
+        <div class="alert alert-success">@successMessage</div>
+    }
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger">@errorMessage</div>
+    }
+
+    <div class="row g-3">
+
+        <!-- CREATE PANEL -->
+        <div class="col-md-4">
+            <div class="glass-card p-3">
+                <h5 class="mb-3">Create Medical Record</h5>
+
+                <EditForm Model="newRecord" OnValidSubmit="CreateRecord">
+                    <DataAnnotationsValidator />
+                    <select class="form-control mb-2" @bind="newRecord.UserId">
+                        <option value="">-- Select User --</option>
+                        @foreach (var u in users)
+                        {
+                            <option value="@u.Id">@u.Email</option>
+                        }
+                    </select>
+
+                    <InputText class="form-control mb-2"
+                               placeholder="Title"
+                               @bind-Value="newRecord.Title" />
+
+                    <InputTextArea class="form-control mb-3"
+                                   placeholder="Description"
+                                   @bind-Value="newRecord.Description" />
+
+                    <button class="btn btn-primary w-100" disabled="@isSaving">
+                        @(isSaving ? "Saving..." : "Create Record")
+                    </button>
+                </EditForm>
+            </div>
+        </div>
+
+        <!-- RECORD LIST -->
+        <div class="col-md-8">
+            <div class="glass-card p-3">
+
+                <h5 class="mb-3">All Medical Records</h5>
+
+                @if (isLoading)
+                {
+                    <p>Loading records...</p>
+                }
+                else if (FilteredRecords.Count == 0)
+                {
+                    <div class="text-center text-muted py-5">
+                        <i class="fa fa-folder-open fa-2x"></i>
+                        <p class="mt-2">No medical records found</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="scroll-area">
+                        @foreach (var r in FilteredRecords.OrderByDescending(x => x.CreatedAt))
+                        {
+                            <div class="record-item">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <div class="fw-bold text-primary">
+                                            @r.Title
+                                        </div>
+
+                                        <small class="text-muted">
+                                            @r.CreatedAt.ToString("dd MMM yyyy hh:mm tt")
+                                        </small>
+
+                                        <div class="mt-2 text-secondary">
+                                            @r.Description
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <span class="badge bg-dark badge-user">
+                                            @r.UserEmail
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@code {
+
+    private List<UserDetails> users = new();
+    private List<MedicalRecord> records = new();
+
+    private MedicalRecord newRecord = new();
+
+    private bool isLoading = true;
+    private bool isSaving = false;
+
+    private string? successMessage;
+    private string? errorMessage;
+
+    private string searchText = "";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadData();
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadData()
+    {
+        isLoading = true;
+
+        var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
+
+        users = await authClient.GetAllUsers(token);
+        records = await medicalRecordClient.GetAllMedicalRecordsAsync(token);
+
+        isLoading = false;
+    }
+
+    private async Task CreateRecord()
+    {
+        isSaving = true;
+
+        try
+        {
+            var token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
+
+            var response = await medicalRecordClient.CreateMedicalRecordAsync(newRecord, token);
+
+            if (response.IsSuccessStatusCode)
+            {
+                successMessage = "Medical record created successfully!";
+                newRecord = new MedicalRecord();
+                await LoadData();
+            }
+            else
+            {
+                errorMessage = "Failed to create medical record";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+
+        isSaving = false;
+    }
+
+    private List<MedicalRecord> FilteredRecords =>
+        string.IsNullOrWhiteSpace(searchText)
+            ? records
+            : records.Where(r =>
+                r.Title.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+                r.UserEmail.Contains(searchText, StringComparison.OrdinalIgnoreCase)
+            ).ToList();
+    }

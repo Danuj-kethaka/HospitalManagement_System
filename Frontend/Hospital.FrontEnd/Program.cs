@@ -6,18 +6,27 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
+
+
 builder.Services.AddScoped<AuthClient>();
-// In Program.cs (Frontend)
 builder.Services.AddScoped<AppointmentClient>();
+builder.Services.AddScoped<MedicalRecordClient>();
+builder.Services.AddScoped<BillClient>();
+builder.Services.AddScoped<LabResultClient>();
+
+
 var HospitalApiUrl = builder.Configuration["HospitalApiUrl"] ?? throw new Exception("HospitalApiUrl is not set");
 builder.Services.AddHttpClient<AuthClient>(client => client.BaseAddress = new Uri(HospitalApiUrl));
 builder.Services.AddHttpClient<AppointmentClient>(client => client.BaseAddress = new Uri(HospitalApiUrl));
+builder.Services.AddHttpClient<MedicalRecordClient>(client => client.BaseAddress = new Uri(HospitalApiUrl));
+builder.Services.AddHttpClient<BillClient>(client => client.BaseAddress = new Uri(HospitalApiUrl));
+builder.Services.AddHttpClient<LabResultClient>(client => client.BaseAddress = new Uri(HospitalApiUrl));
 
 builder.Services.AddScoped<Radzen.NotificationService>();
 builder.Services.AddScoped<Radzen.DialogService>();
 builder.Services.AddScoped<Radzen.TooltipService>();
 builder.Services.AddScoped<Radzen.ContextMenuService>();
-
+builder.Services.AddServerSideBlazor().AddCircuitOptions(options => { options.DetailedErrors = true; });
 
 var app = builder.Build();
 

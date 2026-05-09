@@ -1,10 +1,14 @@
 using HospitalManagement.Api.Endpoints;
+using HospitalManagement.Api.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 public sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext>options) : IdentityDbContext<ApplicationUser>(options)
 {
     public DbSet<Appointment> appointments => Set<Appointment>();
+    public DbSet<MedicalRecord> MedicalRecords => Set<MedicalRecord>();
+    public DbSet<Bill> Bills => Set<Bill>();
+    public DbSet<LabResult> LabResults { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

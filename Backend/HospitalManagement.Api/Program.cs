@@ -35,7 +35,9 @@ builder.Services.AddAuthentication(options =>
 
         IssuerSigningKey = new SymmetricSecurityKey(
             Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]!)
-        )
+        ),
+        RoleClaimType = ClaimTypes.Role,
+        NameClaimType = ClaimTypes.NameIdentifier
     };
 });
 
@@ -70,9 +72,14 @@ RegisterUser.MapEndpoint(app);
 LoginUser.MapEndpoint(app);
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseStaticFiles();
 app.MapAppointmentEndPoints();
 app.MapUserEndPoints();
+app.MapMedicalRecordEndpoints();
+app.MapBillEndpoints();
+app.MapLabResultEndpoints();
 
 app.Run();
+
 
 

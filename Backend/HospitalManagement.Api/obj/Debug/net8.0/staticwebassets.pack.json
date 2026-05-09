@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\bACKEND\\hospitalmanagement.api\\wwwroot\\uploads\\labresults\\a91e9e93-bb6a-4479-b6fa-5800b94e7b72.pdf",
+      "PackagePath": "staticwebassets\\uploads\\labresults\\a91e9e93-bb6a-4479-b6fa-5800b94e7b72.pdf"
+    },
+    {
+      "Id": "D:\\GIT HUB Projects\\Dotnet First Project\\bACKEND\\hospitalmanagement.api\\wwwroot\\uploads\\labresults\\ad421ac2-1c24-4e75-b54e-c1803bff2fc6.docx",
+      "PackagePath": "staticwebassets\\uploads\\labresults\\ad421ac2-1c24-4e75-b54e-c1803bff2fc6.docx"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HospitalManagement.Api.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.HospitalManagement.Api.props",
+      "PackagePath": "build\\HospitalManagement.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.HospitalManagement.Api.props",
+      "PackagePath": "buildMultiTargeting\\HospitalManagement.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.HospitalManagement.Api.props",
+      "PackagePath": "buildTransitive\\HospitalManagement.Api.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
